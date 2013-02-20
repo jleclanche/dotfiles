@@ -91,6 +91,31 @@ bindkey "\e[1;5C" forward-word
 # NOTE this won't work on Konsole if the new tab button is shown
 bindkey "\e[Z" reverse-menu-complete
 
+# xdg-basedir
+
+if [[ -z $XDG_DATA_HOME ]]; then
+	export XDG_DATA_HOME=$HOME/.local/share
+fi
+
+if [[ -z $XDG_CONFIG_HOME ]]; then
+	export XDG_CONFIG_HOME=$HOME/.config
+fi
+
+if [[ -z $XDG_CACHE_HOME ]]; then
+	export XDG_CACHE_HOME=$HOME/.cache
+fi
+
+if [[ -z $XDG_DATA_DIRS ]]; then
+	export XDG_DATA_DIRS=/usr/local/share:/usr/share
+else
+	export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_DIRS
+fi
+
+if [[ -z $XDG_CONFIG_DIRS ]]; then
+	export XDG_CONFIG_DIRS=/etc/xdg
+else
+	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
+fi
 
 # Aliases
 
@@ -155,7 +180,7 @@ function zurl() {
 }
 
 # simple webserver
-alias http="python -m http.server"
+alias http="python -mhttp.server"
 
 # json prettify
 alias json="python -mjson.tool"
