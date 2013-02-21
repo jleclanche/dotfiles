@@ -216,11 +216,11 @@ function translate {
 # xdg basedir-related stuff
 alias skype="skype --dbpath=$HOME/.config/skype"
 alias nvidia-settings="nvidia-settings --config=$HOME/.config/nvidia-settings"
-export CCACHE_DIR="$HOME/.cache/ccache"
-export MPLAYER_HOME=$HOME/.config/mplayer
-export WINEPREFIX=$HOME/.local/share/wineprefixes/default
-export WORKON_HOME=$HOME/.local/share/virtualenvs
-export LESSHISTFILE=$HOME/.cache/less_history
+export CCACHE_DIR=$XDG_CACHE_HOME/ccache
+export LESSHISTFILE=$XDG_CACHE_HOME/less_history
+export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
+export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
+export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
 export PATH=$HOME/bin:$PATH
 
 # virtualenvwrapper
