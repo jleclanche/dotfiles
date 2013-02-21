@@ -220,6 +220,7 @@ export CCACHE_DIR="$HOME/.cache/ccache"
 export MPLAYER_HOME=$HOME/.config/mplayer
 export WINEPREFIX=$HOME/.local/share/wineprefixes/default
 export WORKON_HOME=$HOME/.local/share/virtualenvs
+export LESSHISTFILE=$HOME/.cache/less_history
 export PATH=$HOME/bin:$PATH
 
 # virtualenvwrapper
