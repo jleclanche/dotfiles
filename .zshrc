@@ -186,11 +186,12 @@ alias http="python -mhttp.server"
 alias json="python -mjson.tool"
 
 # display octal permission of file
-
 alias om="stat --printf='%a      %n\n'"
 
+# get public ip
 alias myip="curl ifconfig.me"
 
+# get the content type of an http resource
 function htmime() {
 	if [[ -z $1 ]]; then
 		print "USAGE: htmime <URL>"
@@ -200,15 +201,18 @@ function htmime() {
 	print $mime
 }
 
+# urlencode text
 function urlencode {
 	setopt extendedglob
 	echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
 }
 
+# open a web browser on google for a query
 function google {
 	xdg-open "http://www.google.com/search?q=`urlencode "${(j: :)@}"`"
 }
 
+# translates text (note: disabled by Google)
 function translate {
 	wget -qO- "http://ajax.googleapis.com/ajax/services/language/translate?v=2.0&q=$1&langpair=$2|${3:-en}" | sed 's/.*"translatedText":"\([^"]*\)".*}/\1\n/';
 }
