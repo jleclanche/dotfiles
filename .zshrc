@@ -220,7 +220,6 @@ export CCACHE_DIR=$XDG_CACHE_HOME/ccache
 export LESSHISTFILE=$XDG_CACHE_HOME/less_history
 export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
-export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
 export PATH=$HOME/bin:$PATH
 
 # virtualenvwrapper
