@@ -191,6 +191,14 @@ alias om="stat --printf='%a      %n\n'"
 # get public ip
 alias myip="curl ifconfig.me"
 
+# display a list of supported colors
+function colors() {
+	s=$(printf %76s)
+	for i in {000..$(tput colors)}; do
+		echo -e $i $(tput setaf $i; tput setab $i) ${s// /=} $(tput op);
+	done
+}
+
 # get the content type of an http resource
 function htmime() {
 	if [[ -z $1 ]]; then
