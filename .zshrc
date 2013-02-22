@@ -9,7 +9,7 @@ setopt autocd
 if [ $EUID -lt 1000 ]; then
 	PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
 else
-	PS1="%F{yellow}[%*] %(!.%F{red}.%F{cyan})%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+	PS1="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
 fi
 
 # Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
