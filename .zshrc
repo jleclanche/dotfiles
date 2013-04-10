@@ -232,6 +232,7 @@ function translate {
 alias skype="skype --dbpath=$HOME/.config/skype"
 alias nvidia-settings="nvidia-settings --config=$HOME/.config/nvidia-settings"
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache
+export FORTUNE_DIR=$XDG_DATA_HOME/fortune
 export LESSHISTFILE=$XDG_CACHE_HOME/less_history
 export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
