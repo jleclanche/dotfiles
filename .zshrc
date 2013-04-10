@@ -17,6 +17,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.cache/shell_history
 
+# Preferred apps
+EDITOR="vim"
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
