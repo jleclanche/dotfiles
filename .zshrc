@@ -194,8 +194,8 @@ alias http="python -mhttp.server"
 # json prettify
 alias json="python -mjson.tool"
 
-# display octal permission of file
-alias om="stat --printf='%a      %n\n'"
+# octal/text permissions for file
+alias perms="stat -c '%A %a %n'"
 
 # get public ip
 alias myip="curl ifconfig.me"
