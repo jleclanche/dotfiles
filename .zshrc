@@ -202,9 +202,10 @@ alias myip="curl ifconfig.me"
 
 # display a list of supported colors
 function colors() {
-	s=$(printf %76s)
+	((cols = $COLUMNS - 4))
+	s=$(printf %${cols}s)
 	for i in {000..$(tput colors)}; do
-		echo -e $i $(tput setaf $i; tput setab $i) ${s// /=} $(tput op);
+		echo -e $i $(tput setaf $i; tput setab $i)${s// /=}$(tput op);
 	done
 }
 
