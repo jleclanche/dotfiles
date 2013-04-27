@@ -247,3 +247,9 @@ if command virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
 	alias mkproject2="mkproject -p python2"
 	alias mkvirtualenv2="mkvirtualenv -p python2"
 fi
+
+
+# plugins
+if [ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
