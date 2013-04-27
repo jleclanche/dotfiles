@@ -94,6 +94,12 @@ bindkey "\e[1;5C" forward-word
 # NOTE this won't work on Konsole if the new tab button is shown
 bindkey "\e[Z" reverse-menu-complete
 
+# Make ctrl-e edit the current command line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+
 # xdg-basedir
 
 if [[ -z $XDG_DATA_HOME ]]; then
