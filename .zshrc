@@ -147,6 +147,9 @@ alias sl='ls'
 
 # developer aliases
 
+# Make unified diff syntax the default
+alias diff="diff -u"
+
 # Alias make to a proper amount of cores
 alias make="make -j$(grep processor /proc/cpuinfo | wc -l)"
 
