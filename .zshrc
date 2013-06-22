@@ -6,10 +6,17 @@ setopt histignorealldups sharehistory
 setopt autocd
 
 # Prompt style
-if [ $EUID -lt 1000 ]; then
-	PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+
+# Enable powerline if available, otherwise use a regular PS1
+if [ -e /usr/share/zsh/site-contrib/powerline.zsh ]; then
+	. /usr/share/zsh/site-contrib/powerline.zsh
+	VIRTUAL_ENV_DISABLE_PROMPT=true
 else
-	PS1="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+	if [ $EUID -lt 1000 ]; then
+		PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+	else
+		PS1="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+	fi
 fi
 
 # Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
