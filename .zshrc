@@ -1,6 +1,44 @@
 #!/bin/zsh
 # Set up the prompt
 
+# Set up environment variables
+
+if [[ -z $XDG_DATA_HOME ]]; then
+	export XDG_DATA_HOME=$HOME/.local/share
+fi
+
+if [[ -z $XDG_CONFIG_HOME ]]; then
+	export XDG_CONFIG_HOME=$HOME/.config
+fi
+
+if [[ -z $XDG_CACHE_HOME ]]; then
+	export XDG_CACHE_HOME=$HOME/.cache
+fi
+
+if [[ -z $XDG_DATA_DIRS ]]; then
+	export XDG_DATA_DIRS=/usr/local/share:/usr/share
+else
+	export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_DIRS
+fi
+
+if [[ -z $XDG_CONFIG_DIRS ]]; then
+	export XDG_CONFIG_DIRS=/etc/xdg
+else
+	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
+fi
+
+# Enable 256 color mode
+export TERM="xterm-256color"
+
+# Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.cache/shell_history
+
+# Preferred apps
+EDITOR="vim"
+
+# Shell options
 setopt histignorealldups sharehistory
 # assume "cd" when a command is a directory
 setopt autocd
@@ -18,17 +56,6 @@ else
 		PS1="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
 	fi
 fi
-
-# Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.cache/shell_history
-
-# Enable 256 color mode
-export TERM="xterm-256color"
-
-# Preferred apps
-EDITOR="vim"
 
 # Use modern completion system
 autoload -Uz compinit
@@ -109,32 +136,6 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-
-# xdg-basedir
-
-if [[ -z $XDG_DATA_HOME ]]; then
-	export XDG_DATA_HOME=$HOME/.local/share
-fi
-
-if [[ -z $XDG_CONFIG_HOME ]]; then
-	export XDG_CONFIG_HOME=$HOME/.config
-fi
-
-if [[ -z $XDG_CACHE_HOME ]]; then
-	export XDG_CACHE_HOME=$HOME/.cache
-fi
-
-if [[ -z $XDG_DATA_DIRS ]]; then
-	export XDG_DATA_DIRS=/usr/local/share:/usr/share
-else
-	export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_DIRS
-fi
-
-if [[ -z $XDG_CONFIG_DIRS ]]; then
-	export XDG_CONFIG_DIRS=/etc/xdg
-else
-	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
-fi
 
 # Aliases
 
