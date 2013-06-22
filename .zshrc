@@ -264,8 +264,8 @@ if command virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
 	export PROJECT_HOME=$HOME/src/git
 	source virtualenvwrapper_lazy.sh
 	# Arch linux uses python3 by default, this is required to make python2-compatible projects
-	alias mkproject2="mkproject -p python2"
-	alias mkvirtualenv2="mkvirtualenv -p python2"
+	alias mkproject2="mkproject -p /usr/bin/python2"
+	alias mkvirtualenv2="mkvirtualenv -p /usr/bin/python2"
 fi
 
 
