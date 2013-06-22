@@ -8,11 +8,11 @@ setopt autocd
 # Prompt style
 
 # Enable powerline if available, otherwise use a regular PS1
-if [ -e /usr/share/zsh/site-contrib/powerline.zsh ]; then
+if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
 	. /usr/share/zsh/site-contrib/powerline.zsh
 	VIRTUAL_ENV_DISABLE_PROMPT=true
 else
-	if [ $EUID -lt 1000 ]; then
+	if [[ $EUID -lt 1000 ]]; then
 		PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
 	else
 		PS1="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
@@ -270,6 +270,6 @@ fi
 
 
 # plugins
-if [ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
 	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
