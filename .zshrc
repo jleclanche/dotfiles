@@ -17,6 +17,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.cache/shell_history
 
+# Enable 256 color mode
+export TERM="xterm-256color"
+
 # Preferred apps
 EDITOR="vim"
 
