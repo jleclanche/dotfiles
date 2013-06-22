@@ -42,8 +42,16 @@ EDITOR="vim"
 setopt histignorealldups sharehistory
 # assume "cd" when a command is a directory
 setopt autocd
+# Substitute commands in the prompt
+setopt promptsubst
 
-# Prompt style
+# Enable git vcs_info module
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats " %F{003}(%b)"
+precmd() {
+	vcs_info
+}
 
 # Enable powerline if available, otherwise use a regular PS1
 if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
@@ -51,9 +59,9 @@ if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
 	VIRTUAL_ENV_DISABLE_PROMPT=true
 else
 	if [[ $EUID -lt 1000 ]]; then
-		PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+		PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%# %b%f%k"
 	else
-		PS1="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~%F{white} %# %b%f%k"
+		PROMPT='%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~${vcs_info_msg_0_} %F{white}%# %b%f%k'
 	fi
 fi
 
