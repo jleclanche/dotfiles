@@ -49,7 +49,8 @@ setopt promptsubst
 # Enable git vcs_info module
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats " %F{003}(%r:%b)"
+zstyle ':vcs_info:git*' formats "%{$fg[yellow]%}%r%{$reset_color%} %{$fg[green]%}%b%{$reset_color%} %B%{$fg[yellow]%}%{$reset_color%}"
+
 precmd() {
 	vcs_info
 }
@@ -60,11 +61,12 @@ if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
 	VIRTUAL_ENV_DISABLE_PROMPT=true
 else
 	if [[ $EUID -lt 1000 ]]; then
-		PS1="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%# %b%f%k"
+		PROMPT="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
 	else
-		PROMPT='%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~${vcs_info_msg_0_} %F{white}%# %b%f%k'
+		PROMPT="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
 	fi
 fi
+RPROMPT='${vcs_info_msg_0_}'
 
 # Use modern completion system
 autoload -Uz compinit
