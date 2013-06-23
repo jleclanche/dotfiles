@@ -65,8 +65,8 @@ else
 	else
 		PROMPT="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
 	fi
+	RPROMPT='${vcs_info_msg_0_}'
 fi
-RPROMPT='${vcs_info_msg_0_}'
 
 # Use modern completion system
 autoload -Uz compinit
