@@ -30,7 +30,7 @@ fi
 # Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.cache/shell_history
+HISTFILE=$XDG_CACHE_HOME/shell_history
 
 # Preferred apps
 EDITOR="vim"
@@ -261,8 +261,8 @@ function translate {
 }
 
 # xdg basedir-related stuff
-alias skype="skype --dbpath=$HOME/.config/skype"
-alias nvidia-settings="nvidia-settings --config=$HOME/.config/nvidia-settings"
+alias skype="skype --dbpath=$XDG_CONFIG_HOME/skype"
+alias nvidia-settings="nvidia-settings --config=$XDG_CONFIG_HOME/nvidia-settings"
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache
 export FORTUNE_DIR=$XDG_DATA_HOME/fortune
 export LESSHISTFILE=$XDG_CACHE_HOME/less_history
