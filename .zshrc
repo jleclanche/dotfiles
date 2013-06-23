@@ -27,9 +27,6 @@ else
 	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
 fi
 
-# Enable 256 color mode
-export TERM="xterm-256color"
-
 # Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -37,6 +34,10 @@ HISTFILE=~/.cache/shell_history
 
 # Preferred apps
 EDITOR="vim"
+
+# Enable 256 color mode
+export TERM="xterm-256color"
+autoload -U colors && colors
 
 # Shell options
 setopt histignorealldups sharehistory
