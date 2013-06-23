@@ -48,7 +48,7 @@ setopt promptsubst
 # Enable git vcs_info module
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats " %F{003}(%b)"
+zstyle ':vcs_info:git*' formats " %F{003}(%r:%b)"
 precmd() {
 	vcs_info
 }
