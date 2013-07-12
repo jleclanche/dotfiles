@@ -267,6 +267,7 @@ export CCACHE_DIR=$XDG_CACHE_HOME/ccache
 export FORTUNE_DIR=$XDG_DATA_HOME/fortune
 export LESSHISTFILE=$XDG_CACHE_HOME/less_history
 export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
 export PATH=$HOME/bin:$PATH
 
