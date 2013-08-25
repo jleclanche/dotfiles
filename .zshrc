@@ -174,7 +174,7 @@ alias sl='ls'
 alias diff="diff -u"
 
 # Alias make to a proper amount of cores
-alias make="make -j$(grep processor /proc/cpuinfo | wc -l)"
+alias make="make -j$(nproc)"
 
 # From grml's zshrc!
 # https://github.com/grml/grml-etc-core/blob/master/etc/zsh/zshrc
