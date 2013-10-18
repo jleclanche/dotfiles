@@ -253,12 +253,7 @@ function urlencode {
 
 # open a web browser on google for a query
 function google {
-	xdg-open "http://www.google.com/search?q=`urlencode "${(j: :)@}"`"
-}
-
-# translates text (note: disabled by Google)
-function translate {
-	wget -qO- "http://ajax.googleapis.com/ajax/services/language/translate?v=2.0&q=$1&langpair=$2|${3:-en}" | sed 's/.*"translatedText":"\([^"]*\)".*}/\1\n/';
+	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
 }
 
 # xdg basedir-related stuff
