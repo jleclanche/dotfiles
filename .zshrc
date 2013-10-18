@@ -257,13 +257,10 @@ function google {
 }
 
 # xdg basedir-related stuff
-alias skype="skype --dbpath=$XDG_CONFIG_HOME/skype"
-alias nvidia-settings="nvidia-settings --config=$XDG_CONFIG_HOME/nvidia-settings"
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache
 export FORTUNE_DIR=$XDG_DATA_HOME/fortune
 export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 export LESSHISTFILE=$XDG_CACHE_HOME/less_history
-export MPV_HOME=$XDG_CONFIG_HOME/mpv
 export PIP_DOWNLOAD_CACHE=$XDG_CACHE_HOME/pip
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
