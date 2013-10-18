@@ -276,8 +276,12 @@ if command virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
 	alias mkvirtualenv2="mkvirtualenv -p /usr/bin/python2"
 fi
 
-
 # plugins
 if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
 	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# User profile
+if [[ -e $XDG_CONFIG_HOME/zsh/profile ]]; then
+	source $XDG_CONFIG_HOME/zsh/profile
 fi
