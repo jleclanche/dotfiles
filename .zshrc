@@ -241,7 +241,7 @@ function htmime() {
 		print "USAGE: htmime <URL>"
 		return 1
 	fi
-	mime=$(curl -sIX HEAD $1 | grep ^Content-Type | sed "s/Content-Type: //")
+	mime=$(curl -sIX HEAD $1 | sed -nr 's/Content-Type: (.+)/\1/p')
 	print $mime
 }
 
