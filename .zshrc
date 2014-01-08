@@ -17,8 +17,6 @@ fi
 
 if [[ -z $XDG_DATA_DIRS ]]; then
 	export XDG_DATA_DIRS=/usr/local/share:/usr/share
-else
-	export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_DIRS
 fi
 
 if [[ -z $XDG_CONFIG_DIRS ]]; then
