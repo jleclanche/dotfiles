@@ -255,7 +255,10 @@ function google {
 }
 
 function launch {
-	"$@" & disown
+	# whence only cares about the first arg
+	prog=$(whence "$1")
+	shift
+	$prog $@ & disown
 }
 
 # xdg basedir-related stuff
