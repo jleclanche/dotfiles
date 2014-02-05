@@ -64,6 +64,9 @@ else
 		PROMPT="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
 	fi
 	RPROMPT='${vcs_info_msg_0_}'
+	if [[ ! -z "$SSH_CLIENT" ]]; then
+		RPROMPT="$RPROMPT ⇄"
+	fi
 fi
 
 # Use modern completion system
