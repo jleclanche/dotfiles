@@ -225,7 +225,7 @@ alias json="python -mjson.tool"
 alias perms="stat -c '%A %a %n'"
 
 # get public ip
-alias myip="curl ifcfg.net"
+alias myip="curl ifconfig.me"
 
 # display a list of supported colors
 function colorlist() {
