@@ -264,6 +264,11 @@ function launch {
 	$prog $@ & disown
 }
 
+function hr {
+	# add a separator banner
+	print ${(l:COLUMNS::=:)}
+}
+
 # xdg basedir-related stuff
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache
 export FORTUNE_DIR=$XDG_DATA_HOME/fortune
