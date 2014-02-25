@@ -1,0 +1,100 @@
+// /**
+// * Devrix Latin+common ASCII keyboard - version 2.1 (2014-02-25)
+// * Multiuse keyboard adapted for activities requiring common use of special ASCII characters
+// * such as programming, mathematics, etc.
+// * Devrix is adaptable to any keyboard layout, keeping exclusivity the two rightmost rows as
+// * well as the third rightmost alt-gr row.
+// * Jerome Leclanche <jerome.leclanche+devrix@gmail.com> - This layout is in the Public Domain
+// *
+// * ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
+// * │ ~ ~ │ " ´ │ ' ` │ ^ ^ │ ` ¨ │ ´ ° │ 6 6 │ 7 7 │ 8 ¸ │ 9 9 │ | ¬ │ _ ± │ = ≠ ┃Backspace┃
+// * │ @ £ │ 1 ¹ │ 2 ² │ 3 ³ │ 4 ⁴ │ 5 ⁵ │ 6 ⁶ │ 7 ⁷ │ 8 ⁸ │ 9 ⁹ │ 0 ⁰ │ - " │ + ' ┃ ⌫       ┃
+// * ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
+// * ┃Tab    ┃ Q Ø │ W W │ E E │ R → │ T τ │ Y Y │ U ↑ │ I ’ │ O Œ │ P ¶ │ [ « │ ] » ┃ ⏎     ┃
+// * ┃ ↹     ┃ q ø │ w w │ e € │ r ® │ t ™ │ y ¥ │ u µ │ i ‘ │ o œ │ p π │ ( { │ ) } ┃ Enter ┃
+// * ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
+// * ┃Caps    ┃ A Æ │ S ß │ D ↓ │ F ª │ G G │ H H │ J ” │ K „ │ L ← │ M º │ % ¢ │ & × ┃      ┃
+// * ┃Lock  ⇬ ┃ a æ │ s $ │ d þ │ f ƒ │ g g │ h h │ j “ │ k ‚ │ l £ │ m ^ │ # ~ │ * $ ┃      ┃
+// * ┣━━━━━━┳━┹───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┷━━━━━┻━━━━━━┫
+// * ┃Shift ┃ > ≥ │ Z ¶ │ X ÷ │ C ¢ │ V V │ B B │ N N │ ? ¿ │ , · │ ; ´ │ \ ¦ ┃Shift         ┃
+// * ┃ ⇧    ┃ < ≤ │ z § │ x × │ c © │ v v │ b b │ n n │ ! ¡ │ . … │ : ` │ / | ┃ ⇧            ┃
+// * ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴────┲┷━━━━━╈━━━━━┻┳━━━━━━┳━━━━━━┫
+// * ┃Ctrl   ┃ Fn    ┃Alt    ┃ ␣ Space            Nobreakspace ⍽ ┃AltGr ┃Multi ┃ Ctxt ┃ Ctrl ┃
+// * ┃       ┃       ┃       ┃ ␣ Space            Nobreakspace ⍽ ┃      ┃      ┃ Menu ┃      ┃
+// * ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹───────────────────────────────────┺━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┛
+// */
+
+default
+partial alphanumeric_keys modifier_keys
+xkb_symbols "basic" {
+
+	name[Group1] = "English (US)";
+
+	// First row
+	key <TLDE> {[ at,          asciitilde,     sterling,             dead_tilde            ]}; // @ ~ £ ~
+	key <AE01> {[ 1,           quotedbl,       onesuperior,          dead_grave            ]}; // 1 " ¹ `
+	key <AE02> {[ 2,           apostrophe,     twosuperior,          dead_acute            ]}; // 2 ' ² ´
+	key <AE03> {[ 3,           asciicircum,    threesuperior,        dead_circumflex       ]}; // 3 ^ ³ ^
+	key <AE04> {[ 4,           grave,          foursuperior,         dead_diaeresis        ]}; // 4 4 ⁴ ¨
+	key <AE05> {[ 5,           degree,         fivesuperior,         dead_abovering        ]}; // 5 ° ⁵ °
+	key <AE06> {[ 6,           6,              sixsuperior,          6                     ]}; // 6 6 ⁶ 6
+	key <AE07> {[ 7,           7,              sevensuperior,        7                     ]}; // 7 7 ⁷ 7
+	key <AE08> {[ 8,           8,              eightsuperior,        dead_cedilla          ]}; // 8 8 ⁸ ¸
+	key <AE09> {[ 9,           9,              ninesuperior,         degree                ]}; // 9 9 ⁹ °
+	key <AE10> {[ 0,           bar,            zerosuperior,         notsign               ]}; // 0 | ⁰ ¬
+	key <AE11> {[ minus,       underscore,     quotedbl,             plusminus             ]}; // - _ " ±
+	key <AE12> {[ plus,        equal,          apostrophe,           notequal              ]}; // + = ' ≠
+
+	// Second row
+	key <AD01> {[ q,           Q,              oslash,               Ooblique              ]}; // q Q ø Ø
+	key <AD02> {[ w,           W,              w,                    W                     ]}; // w W w W
+	key <AD03> {[ e,           E,              EuroSign,             E                     ]}; // e E € E
+	key <AD04> {[ r,           R,              registered,           rightarrow            ]}; // r R ® →
+	key <AD05> {[ t,           T,              trademark,            Greek_tau             ]}; // t T ™ τ
+	key <AD06> {[ y,           Y,              yen,                  Y                     ]}; // y Y ¥ Y
+	key <AD07> {[ u,           U,              mu,                   uparrow               ]}; // u U µ ↑
+	key <AD08> {[ i,           I,              leftsinglequotemark,  rightsinglequotemark  ]}; // i I ‘ ’
+	key <AD09> {[ o,           O,              oe,                   OE                    ]}; // o O œ Œ
+	key <AD10> {[ p,           P,              Greek_pi,             paragraph             ]}; // p P § ¶
+	key <AD11> {[ parenleft,   bracketleft,    braceleft,            guillemotleft         ]}; // ( [ { «
+	key <AD12> {[ parenright,  bracketright,   braceright,           guillemotright        ]}; // ) ] } »
+
+	// Third row
+	key <AC01> {[ a,           A,              ae,                   AE                    ]}; // a A æ Æ
+	key <AC02> {[ s,           S,              dollar,               ssharp                ]}; // s S $ ß
+	key <AC03> {[ d,           D,              thorn,                downarrow             ]}; // d D þ ↓
+	key <AC04> {[ f,           F,              0x1000083,            ordfeminine           ]}; // f F ƒ ª
+	key <AC05> {[ g,           G,              g,                    G                     ]}; // g G g G
+	key <AC06> {[ h,           H,              h,                    H                     ]}; // h H h H
+	key <AC07> {[ j,           J,              leftdoublequotemark,  rightdoublequotemark  ]}; // j J “ ”
+	key <AC08> {[ k,           K,              singlelowquotemark,   doublelowquotemark    ]}; // k K ‚ „
+	key <AC09> {[ l,           L,              sterling,             leftarrow             ]}; // l L £ ←
+	key <AC10> {[ m,           M,              asciicircum,          masculine             ]}; // m M ^ º
+	key <AC11> {[ numbersign,  percent,        asciitilde,           cent                  ]}; // # % ~ ¢
+
+	// Fourth row
+	key <LSGT> {[ less,        greater,        lessthanequal,        greaterthanequal      ]}; // < > ≤ ≥
+	key <AB01> {[ z,           Z,              section,              paragraph             ]}; // z Z § ¶
+	key <AB02> {[ x,           X,              multiply,             division              ]}; // x X × ÷
+	key <AB03> {[ c,           C,              copyright,            cent                  ]}; // c C © ¢
+	key <AB04> {[ v,           V,              v,                    V                     ]}; // v V v V
+	key <AB05> {[ b,           B,              b,                    B                     ]}; // b B b B
+	key <AB06> {[ n,           N,              n,                    N                     ]}; // n N n N
+	key <AB07> {[ exclam,      question,       exclamdown,           questiondown          ]}; // ! ? ¡ ¿
+	key <AB08> {[ period,      comma,          0x1002026,            periodcentered        ]}; // . , … ·
+	key <AB09> {[ colon,       semicolon,      grave,                acute                 ]}; // : ; ` ´
+	key <AB10> {[ slash,       backslash,      bar,                  brokenbar             ]}; // / \ | ¦
+
+	// Next to the enter key
+	key <BKSL> {[ asterisk,    ampersand,      dollar,               multiply              ]}; // * & $ ×
+
+	// Rebind right Super (windows key) into a Compose key
+	key <RWIN> {[ Multi_key ]};
+
+	// Implement AltGr and AltGr+Shift... somehow, include "level3(ralt_switch)" doesn't do the trick.
+	key <RALT> {
+		type[Group1]="TWO_LEVEL",
+		[ ISO_Level3_Shift, Multi_key ]
+	};
+	modifier_map Mod5 { <RALT> };
+};
