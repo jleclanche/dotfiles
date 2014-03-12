@@ -149,6 +149,18 @@ zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 
+# typing ... expands to ../.., .... to ../../.., etc.
+rationalise-dot() {
+	if [[ $LBUFFER = *.. ]]; then
+		LBUFFER+=/..
+	else
+		LBUFFER+=.
+	fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
+
+
 # Aliases
 
 # Colors
