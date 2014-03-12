@@ -161,7 +161,9 @@ zle -N rationalise-dot
 bindkey . rationalise-dot
 
 
+##
 # Aliases
+#
 
 # Colors
 alias ls='ls -F --color=auto'
@@ -174,31 +176,87 @@ alias less='less -R' # make less accept color codes and re-output them
 alias dmesg='dmesg -L'
 
 # some more ls aliases
+alias l='ls -CF'
 alias ll='ls -l'
 alias la='ls -A'
 alias lh='ls -lh'
-alias l='ls -CF'
 alias lash='ls -lAsh'
 alias sl='ls'
-
-# developer aliases
 
 # Make unified diff syntax the default
 alias diff="diff -u"
 
+# simple webserver
+alias http="python -m http.server"
+
+# json prettify
+alias json="python -m json.tool"
+
 # Alias make to a proper amount of cores
 alias make="make -j$(nproc)"
 
-# From grml's zshrc!
-# https://github.com/grml/grml-etc-core/blob/master/etc/zsh/zshrc
+# get public ip
+alias myip="curl ifconfig.me"
+
+# octal+text permissions for files
+alias perms="stat -c '%A %a %n'"
+
+
+##
+# Functions
+#
 
 # make a backup of a file
+# https://github.com/grml/grml-etc-core/blob/master/etc/zsh/zshrc
 bk() {
 	cp -a "$1" "${1}_$(date --iso-8601=seconds)"
 }
 
+# display a list of supported colors
+function lscolors() {
+	((cols = $COLUMNS - 4))
+	s=$(printf %${cols}s)
+	for i in {000..$(tput colors)}; do
+		echo -e $i $(tput setaf $i; tput setab $i)${s// /=}$(tput op);
+	done
+}
 
-# Create small urls via http://goo.gl using curl(1).
+# get the content type of an http resource
+function htmime() {
+	if [[ -z $1 ]]; then
+		print "USAGE: htmime <URL>"
+		return 1
+	fi
+	mime=$(curl -sIX HEAD $1 | sed -nr 's/Content-Type: (.+)/\1/p')
+	print $mime
+}
+
+# open a web browser on google for a query
+function google {
+	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
+}
+
+# print a separator banner, as wide as the terminal
+function hr {
+	print ${(l:COLUMNS::=:)}
+}
+
+# launch an app,
+function launch {
+	# whence only cares about the first arg
+	prog=$(whence "$1")
+	shift
+	$prog $@ & disown
+}
+
+# urlencode text
+function urlencode {
+	setopt extendedglob
+	echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+}
+
+# Create short urls via http://goo.gl using curl(1).
+# Contributed back to grml zshrc
 # API reference: https://code.google.com/apis/urlshortener/
 function zurl() {
 	emulate -L zsh
@@ -225,60 +283,6 @@ function zurl() {
 	if [[ $data =~ '"id": "(http://goo.gl/[[:alnum:]]+)"' ]]; then
 		print $match
 	fi
-}
-
-# simple webserver
-alias http="python -mhttp.server"
-
-# json prettify
-alias json="python -mjson.tool"
-
-# octal/text permissions for file
-alias perms="stat -c '%A %a %n'"
-
-# get public ip
-alias myip="curl ifconfig.me"
-
-# display a list of supported colors
-function lscolors() {
-	((cols = $COLUMNS - 4))
-	s=$(printf %${cols}s)
-	for i in {000..$(tput colors)}; do
-		echo -e $i $(tput setaf $i; tput setab $i)${s// /=}$(tput op);
-	done
-}
-
-# get the content type of an http resource
-function htmime() {
-	if [[ -z $1 ]]; then
-		print "USAGE: htmime <URL>"
-		return 1
-	fi
-	mime=$(curl -sIX HEAD $1 | sed -nr 's/Content-Type: (.+)/\1/p')
-	print $mime
-}
-
-# urlencode text
-function urlencode {
-	setopt extendedglob
-	echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
-}
-
-# open a web browser on google for a query
-function google {
-	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
-}
-
-function launch {
-	# whence only cares about the first arg
-	prog=$(whence "$1")
-	shift
-	$prog $@ & disown
-}
-
-function hr {
-	# add a separator banner
-	print ${(l:COLUMNS::=:)}
 }
 
 # xdg basedir-related stuff
