@@ -1,8 +1,38 @@
 #!/bin/zsh
-# Set up the prompt
+# My .zshrc
+# Jerome Leclanche <jerome@leclan.ch>
+# https://github.com/jleclanche/dotfiles/blob/master/.zshrc
 
-# Set up environment variables
 
+##
+# Somebody set us up the prompt
+#
+
+if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
+	# Powerline support is enabled if available, otherwise use a regular PS1
+	. /usr/share/zsh/site-contrib/powerline.zsh
+	VIRTUAL_ENV_DISABLE_PROMPT=true
+else
+	# Default colors:
+	# Cyan for users, red for root, magenta for system users
+	if [[ $EUID -lt 1000 ]]; then
+		PROMPT="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
+	else
+		PROMPT="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
+	fi
+
+	RPROMPT='${vcs_info_msg_0_}' # git branch
+	if [[ ! -z "$SSH_CLIENT" ]]; then
+		RPROMPT="$RPROMPT ⇄" # ssh icon
+	fi
+fi
+
+##
+# Environment variables
+#
+
+# basedir defaults, in case they're not already set up.
+# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 if [[ -z $XDG_DATA_HOME ]]; then
 	export XDG_DATA_HOME=$HOME/.local/share
 fi
@@ -25,76 +55,77 @@ else
 	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
 fi
 
+# add ~/bin to $PATH
+export PATH=$HOME/bin:$PATH
+
+
+##
+# zsh configuration
+#
+
 # Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=$XDG_CACHE_HOME/shell_history
 
-# Preferred apps
-EDITOR="vim"
+# shell options
+setopt autocd # assume "cd" when a command is a directory
+setopt histignorealldups # Substitute commands in the prompt
+setopt extendedglob # Extended glob syntax, eg ^ to negate, <x-y> for range, (foo|bar) etc.
+setopt sharehistory # Share the same history between all shells
+setopt promptsubst # required for git plugin
 
-# Enable 256 color mode
+# Colors!
+
+# 256 color mode
 export TERM="xterm-256color"
 autoload -U colors && colors
 
-# Shell options
-setopt histignorealldups sharehistory
-# assume "cd" when a command is a directory
-setopt autocd
-# Substitute commands in the prompt
-setopt promptsubst
+# ls colors (provided by dircolors)
+eval "$(dircolors -b)"
 
-# Enable git vcs_info module
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats "%{$fg[yellow]%}%r%{$reset_color%} %{$fg[green]%}%b%{$reset_color%} %B%{$fg[yellow]%}%{$reset_color%}"
+# Color aliases
+alias ls="ls -F --color=auto"
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias dmesg="dmesg -L"
+# make less accept color codes and re-output them
+alias less="less -R"
 
-precmd() {
-	vcs_info
-}
 
-# Enable powerline if available, otherwise use a regular PS1
-if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
-	. /usr/share/zsh/site-contrib/powerline.zsh
-	VIRTUAL_ENV_DISABLE_PROMPT=true
-else
-	if [[ $EUID -lt 1000 ]]; then
-		PROMPT="%F{yellow}[%*] %(!.%F{red}.%F{magenta})%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
-	else
-		PROMPT="%F{yellow}[%*] %F{cyan}%n@%M%k %B%F{green}%(8~|...|)%7~ %F{white}%#%b%f%k "
-	fi
-	RPROMPT='${vcs_info_msg_0_}'
-	if [[ ! -z "$SSH_CLIENT" ]]; then
-		RPROMPT="$RPROMPT ⇄"
-	fi
-fi
+##
+# Completion system
+#
 
-# Use modern completion system
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
+zstyle ":completion:*" auto-description "specify: %d"
+zstyle ":completion:*" completer _expand _complete _correct _approximate
+zstyle ":completion:*" format "Completing %d"
+zstyle ":completion:*" group-name ""
+zstyle ":completion:*" menu select=2
+zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
+zstyle ":completion:*" list-colors ""
+zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
+zstyle ":completion:*" menu select=long
+zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
+zstyle ":completion:*" use-compctl false
+zstyle ":completion:*" verbose true
 
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
+zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
 
 
-# keybinds
+##
+# Keybinds
+#
 
-# Use emacs keybindings even if our EDITOR is set to vi
+# Use emacs-style keybindings
 bindkey -e
 
 typeset -A key
@@ -121,22 +152,23 @@ key[PageDown]=${terminfo[knp]}
 
 # Make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
-
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 	function zle-line-init () {
-		printf '%s' ${terminfo[smkx]}
+		printf "%s" ${terminfo[smkx]}
 	}
 	function zle-line-finish () {
-		printf '%s' ${terminfo[rmkx]}
+		printf "%s" ${terminfo[rmkx]}
 	}
 	zle -N zle-line-init
 	zle -N zle-line-finish
 fi
+
 # Bind ctrl-left / ctrl-right
 bindkey "\e[1;5D" backward-word
 bindkey "\e[1;5C" forward-word
 
-# Bind ctrl-backspace to delete word. NOTE: This may not work properly in some emulators
+# Bind ctrl-backspace to delete word.
+# NOTE: This may not work properly in some emulators
 # bindkey "^?" backward-delete-word
 
 # Bind shift-tab to backwards-menu
@@ -146,7 +178,7 @@ bindkey "\e[Z" reverse-menu-complete
 # Make ctrl-e edit the current command line
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey "^e" edit-command-line
 
 
 # typing ... expands to ../.., .... to ../../.., etc.
@@ -165,23 +197,13 @@ bindkey . rationalise-dot
 # Aliases
 #
 
-# Colors
-alias ls='ls -F --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias less='less -R' # make less accept color codes and re-output them
-alias dmesg='dmesg -L'
-
 # some more ls aliases
-alias l='ls -CF'
-alias ll='ls -l'
-alias la='ls -A'
-alias lh='ls -lh'
-alias lash='ls -lAsh'
-alias sl='ls'
+alias l="ls -CF"
+alias ll="ls -l"
+alias la="ls -A"
+alias lh="ls -lh"
+alias lash="ls -lAsh"
+alias sl="ls"
 
 # Make unified diff syntax the default
 alias diff="diff -u"
@@ -227,7 +249,7 @@ function htmime() {
 		print "USAGE: htmime <URL>"
 		return 1
 	fi
-	mime=$(curl -sIX HEAD $1 | sed -nr 's/Content-Type: (.+)/\1/p')
+	mime=$(curl -sIX HEAD $1 | sed -nr "s/Content-Type: (.+)/\1/p")
 	print $mime
 }
 
@@ -251,8 +273,7 @@ function launch {
 
 # urlencode text
 function urlencode {
-	setopt extendedglob
-	echo "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
 }
 
 # Create short urls via http://goo.gl using curl(1).
@@ -269,13 +290,13 @@ function zurl() {
 	PN=$0
 	url=$1
 
-	# Prepend 'http://' to given URL where necessary for later output.
+	# Prepend "http://" to given URL where necessary for later output.
 	if [[ ${url} != http(s|)://* ]]; then
-		url='http://'${url}
+		url="http://"${url}
 	fi
 
 	prog=curl
-	api='https://www.googleapis.com/urlshortener/v1/url'
+	api="https://www.googleapis.com/urlshortener/v1/url"
 	contenttype="Content-Type: application/json"
 	json="{\"longUrl\": \"${url}\"}"
 	data=$($prog --silent -H ${contenttype} -d ${json} $api)
@@ -285,29 +306,33 @@ function zurl() {
 	fi
 }
 
-# xdg basedir-related stuff
-export CCACHE_DIR=$XDG_CACHE_HOME/ccache
-export FORTUNE_DIR=$XDG_DATA_HOME/fortune
-export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
-export LESSHISTFILE=$XDG_CACHE_HOME/less_history
-export PIP_DOWNLOAD_CACHE=$XDG_CACHE_HOME/pip
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
-export WINEPREFIX=$XDG_DATA_HOME/wineprefixes/default
-export PATH=$HOME/bin:$PATH
 
-# virtualenvwrapper
+##
+# Extras
+#
+
+# Git plugin
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats "%{$fg[yellow]%}%r%{$reset_color%} %{$fg[green]%}%b%{$reset_color%} %B%{$fg[yellow]%}%{$reset_color%}"
+
+precmd() {
+	vcs_info
+}
+
+# Syntax highlighting plugin
+if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# virtualenvwrapper support
+# Remember to set $PROJECT_HOME in your profile file!
 if command virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
 	export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
-	export PROJECT_HOME=$HOME/src/git
 	source virtualenvwrapper_lazy.sh
 	# Arch linux uses python3 by default, this is required to make python2-compatible projects
 	alias mkproject2="mkproject -p /usr/bin/python2"
 	alias mkvirtualenv2="mkvirtualenv -p /usr/bin/python2"
-fi
-
-# plugins
-if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # User profile
