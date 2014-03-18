@@ -6,7 +6,7 @@ dotfiles
 ![Screenshot](https://mediacru.sh/2g86pkZOOhR_.png "Screenshot of zsh with the .zshrc")
 
 
-#Features
+##Features
 
 * [XDG basedirs](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 * Powerline support if installed
@@ -17,7 +17,7 @@ dotfiles
   * Colors enabled by default in ls, grep, dmesg and less!
 * Add your extra stuff in $XDG_CONFIG_HOME/zsh/profile
 
-#Extra functions
+##Extra functions
 
 * **bk** <file>: Back up a file
 * **htmime** <url>: Get the content type of a URL
@@ -29,7 +29,7 @@ dotfiles
 * **zurl** <url>: Shorten a URL (uses goo.gl service)
 
 
-#Extra aliases
+##Extra aliases
 
 * **http**: Run a webserver in cwd (uses Python 3 http.server)
 * **json**: Indent and prettify json code
@@ -37,7 +37,7 @@ dotfiles
 * **perms** <args>: Print file permissions (octal and text)
 
 
-#Other fun stuff
+##Other fun stuff
 
 * Ctrl+E: Edit the current line in your $EDITOR
 * Expand "...": Typing ... is expanded to ../..; .... expands to ../../.. and so on.
