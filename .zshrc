@@ -269,26 +269,22 @@ function urlencode {
 # Contributed back to grml zshrc
 # API reference: https://code.google.com/apis/urlshortener/
 function zurl() {
-	emulate -L zsh
 	if [[ -z $1 ]]; then
-		print "USAGE: zurl <URL>"
+		print "USAGE: $0 <URL>"
 		return 1
 	fi
 
-	local PN url prog api json data
-	PN=$0
-	url=$1
-
+	local url=$1
 	# Prepend "http://" to given URL where necessary for later output.
-	if [[ ${url} != http(s|)://* ]]; then
-		url="http://"${url}
+	if [[ $url != http(s|)://* ]]; then
+		url="http://$url"
 	fi
 
-	prog=curl
-	api="https://www.googleapis.com/urlshortener/v1/url"
-	contenttype="Content-Type: application/json"
-	json="{\"longUrl\": \"${url}\"}"
-	data=$($prog --silent -H ${contenttype} -d ${json} $api)
+	local prog=curl
+	local api="https://www.googleapis.com/urlshortener/v1/url"
+	local contenttype="Content-Type: application/json"
+	local json="{\"longUrl\": \"$url\"}"
+	local data=$($prog --silent -H $contenttype -d $json $api)
 	# Match against a regex and print it
 	if [[ $data =~ '"id": "(http://goo.gl/[[:alnum:]]+)"' ]]; then
 		print $match
