@@ -19,14 +19,14 @@ dotfiles
 
 ##Extra functions
 
-* **bk** <file>: Back up a file
-* **htmime** <url>: Get the content type of a URL
-* **google** <query>: Open your default browser on a google query
+* **bk** \<file\>: Back up a file
+* **htmime** \<url\>: Get the content type of a URL
+* **google** \<query\>: Open your default browser on a google query
 * **hr**: print a terminal-wide banner
-* **launch** <app> <args>: Launch a binary, disowning it from the terminal immediately
+* **launch** \<app\> [args]: Launch a binary, disowning it from the terminal immediately
 * **lscolors**: list all available colors
-* **urlencode** <text>: Return the url-encoded value of `text`
-* **zurl** <url>: Shorten a URL (uses goo.gl service)
+* **urlencode** \<text\>: Return the url-encoded value of `text`
+* **zurl** \<url\>: Shorten a URL (uses goo.gl service)
 
 
 ##Extra aliases
@@ -34,7 +34,7 @@ dotfiles
 * **http**: Run a webserver in cwd (uses Python 3 http.server)
 * **json**: Indent and prettify json code
 * **myip**: Print the machine's public ip (uses ifconfig.me service)
-* **perms** <args>: Print file permissions (octal and text)
+* **perms** \<args\>: Print file permissions (octal and text)
 
 
 ##Other fun stuff
