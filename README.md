@@ -14,7 +14,7 @@ dotfiles
 * zsh-syntax-highlight support if installed 
 * Git integration enabled
 * 256-color support by default
-..* Colors enabled by default in ls, grep, dmesg and less!
+  * Colors enabled by default in ls, grep, dmesg and less!
 * Add your extra stuff in $XDG_CONFIG_HOME/zsh/profile
 
 #Extra functions
