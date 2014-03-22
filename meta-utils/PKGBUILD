@@ -1,0 +1,37 @@
+# Maintainer: Jerome Leclanche <jerome@leclan.ch>
+
+pkgname=meta-utils
+pkgver=1.0
+pkgrel=1
+pkgdesc="Command-line utilities"
+arch=('any')
+license=('custom:public domain')
+depends=(
+	'ack'
+	'beep'
+	'cabextract'
+	'dialog'
+	'fdupes'
+	'htop'
+	'iotop'
+	'hexedit'
+	'lshw'
+	'lsof'
+	'lynx'
+	'mlocate'
+	'openssh'
+	'perl-rename'
+	'rsync'
+	'sshfs'
+	'strace'
+	'traceroute'
+	'tree'
+	'unrar'
+	'unzip'
+	'wget'
+	'zsh'
+)
+
+package() {
+	msg "This is a metapackage. Nothing will be installed"
+}
