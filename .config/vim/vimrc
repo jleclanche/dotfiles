@@ -1,0 +1,22 @@
+" Enable mouse input
+set mouse=a
+
+" Enable line numbers
+set number
+
+" Highlight all search terms
+set hlsearch
+
+" Indentation options
+set list listchars=tab:»\ ,trail:·
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
+" Clipboard options
+set clipboard+=unnamed " Yanks go on clipboard instead
+set pastetoggle=<F10>
+
+" XDG configuration
+set viminfo+=n~/.config/vim/viminfo
