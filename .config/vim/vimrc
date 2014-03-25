@@ -18,5 +18,16 @@ set noexpandtab
 set clipboard+=unnamed " Yanks go on clipboard instead
 set pastetoggle=<F10>
 
+" Completion options
+set wildmenu
+set wildmode=list:longest
+
+" Search options
+set incsearch
+set hlsearch
+set ignorecase
+
 " XDG configuration
-set viminfo+=n~/.config/vim/viminfo
+set viminfo+=n$XDG_CONFIG_HOME/vim/viminfo
+set directory=$XDG_CACHE_HOME/vim
+set backupdir=$XDG_CACHE_HOME/vim
