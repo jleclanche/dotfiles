@@ -1,0 +1,7 @@
+\pset null ¤
+\pset format wrapped
+\pset linestyle unicode
+\pset border 2
+\set HISTFILE ~/.cache/psql_history
+\set PROMPT1 '%[%033[33m%]%`date +"[%T]"`% %[%033[31;5m%]%x%[%033[0m%]%[%033[35m%]%n@%m %[%033[37;1m%]%/› %[%033[0m%]'
+\set PROMPT2 '%[%033[37;1m%] » %[%033[0m%]'
