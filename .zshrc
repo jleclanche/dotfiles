@@ -25,7 +25,7 @@ else
 		_usercol="%F{cyan}"
 	fi
 	local _user="$_usercol%n@%M"
-		local _prompt="%F{white}%#"
+	local _prompt="%F{white}${(r:$SHLVL*2::%#:)}"
 
 	PROMPT="$_time $_user $_path $_prompt%b%f%k "
 
