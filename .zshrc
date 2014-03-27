@@ -212,6 +212,9 @@ alias myip="curl ifconfig.me"
 # octal+text permissions for files
 alias perms="stat -c '%A %a %n'"
 
+# expand sudo aliases
+alias sudo="sudo "
+
 
 ##
 # Functions
