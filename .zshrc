@@ -252,13 +252,11 @@ function hr {
 	print ${(l:COLUMNS::=:)}
 }
 
-# launch an app,
+# launch an app
 function launch {
-	# whence only cares about the first arg
-	prog=$(whence "$1")
-	shift
-	$prog $@ & disown
+	$@ &>/dev/null &|
 }
+alias launch="launch " # expand aliases
 
 # urlencode text
 function urlencode {
