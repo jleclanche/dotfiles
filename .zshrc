@@ -265,6 +265,7 @@ function hr {
 
 # launch an app
 function launch {
+	type $1 >/dev/null || { print "$1 not found" && return 1 }
 	$@ &>/dev/null &|
 }
 alias launch="launch " # expand aliases
