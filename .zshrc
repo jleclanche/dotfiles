@@ -285,16 +285,16 @@ function zurl() {
 	fi
 
 	local url=$1
+	local api="https://www.googleapis.com/urlshortener/v1/url"
+	local data
+
 	# Prepend "http://" to given URL where necessary for later output.
 	if [[ $url != http(s|)://* ]]; then
 		url="http://$url"
 	fi
-
-	local prog=curl
-	local api="https://www.googleapis.com/urlshortener/v1/url"
-	local contenttype="Content-Type: application/json"
 	local json="{\"longUrl\": \"$url\"}"
-	local data=$($prog --silent -H $contenttype -d $json $api)
+
+	data=$(curl --silent -H "Content-Type: application/json" -d $json $api)
 	# Match against a regex and print it
 	if [[ $data =~ '"id": "(http://goo.gl/[[:alnum:]]+)"' ]]; then
 		print $match
