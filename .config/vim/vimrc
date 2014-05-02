@@ -17,6 +17,7 @@ set noexpandtab
 " Clipboard options
 set clipboard+=unnamed " Yanks go on clipboard instead
 set pastetoggle=<F10>
+set paste
 
 " Completion options
 set wildmenu
