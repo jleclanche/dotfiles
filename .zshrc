@@ -8,6 +8,9 @@
 # Somebody set us up the prompt
 #
 
+# Let's have some colors first
+autoload -U colors && colors
+
 if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
 	# Powerline support is enabled if available, otherwise use a regular PS1
 	. /usr/share/zsh/site-contrib/powerline.zsh
@@ -15,17 +18,17 @@ if [[ -e /usr/share/zsh/site-contrib/powerline.zsh ]]; then
 else
 	# Default colors:
 	# Cyan for users, red for root, magenta for system users
-	local _time="%F{yellow}[%*]"
-	local _path="%B%F{green}%(8~|...|)%7~"
+	local _time="%{$fg[yellow]%}[%*]"
+	local _path="%B%{$fg[green]%}%(8~|...|)%7~"
 	local _usercol
 	if [[ $EUID -lt 1000 ]]; then
 		# red for root, magenta for system users
-		_usercol="%(!.%F{red}.%F{magenta})"
+		_usercol="%(!.%{$fg[red]%}.%{$fg[magenta]%})"
 	else
-		_usercol="%F{cyan}"
+		_usercol="$fg[cyan]"
 	fi
-	local _user="$_usercol%n@%M"
-	local _prompt="%F{white}${(r:$SHLVL*2::%#:)}"
+	local _user="%{$_usercol%}%n@%M"
+	local _prompt="%{$fg[white]%}${(r:$SHLVL*2::%#:)}"
 
 	PROMPT="$_time $_user $_path $_prompt%b%f%k "
 
@@ -91,7 +94,6 @@ setopt promptsubst # required for git plugin
 
 # 256 color mode
 export TERM="xterm-256color"
-autoload -U colors && colors
 
 # ls colors (provided by dircolors)
 eval "$(dircolors -b)"
