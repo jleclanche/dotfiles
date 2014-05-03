@@ -65,6 +65,10 @@ fi
 
 # add ~/bin to $PATH
 path=(~/bin $path)
+# add ~/.config/zsh/completion to completion paths
+# NOTE: this needs to be a directory with 0755 permissions, otherwise you will
+# get "insecure" warnings on shell load!
+fpath=($XDG_CONFIG_HOME/zsh/completion $fpath)
 
 
 ##

@@ -11,11 +11,12 @@ dotfiles
 * [XDG basedirs](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 * Powerline support if installed
 * virtualenvwrapper support if installed
-* zsh-syntax-highlight support if installed 
+* zsh-syntax-highlight support if installed
 * Git integration enabled
 * 256-color support by default
   * Colors enabled by default in ls, grep, dmesg and less!
 * Add your extra stuff in $XDG_CONFIG_HOME/zsh/profile
+  * Put your custom completions in $XDG_CONFIG_HOME/zsh/completion/
 
 ##Extra functions
 
