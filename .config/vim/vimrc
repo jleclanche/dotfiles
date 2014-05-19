@@ -1,11 +1,9 @@
-" Enable mouse input
-set mouse=a
-
-" Enable line numbers
-set number
-
-" Highlight all search terms
-set hlsearch
+" UI options
+set mouse=a " Enable mouse input in all modes
+set number " Enable line numbers
+set showmatch " Show matching brackets
+set wildmenu " Completion menu
+set wildmode=list:longest
 
 " Indentation options
 set list listchars=tab:»\ ,trail:·
@@ -16,19 +14,18 @@ set noexpandtab
 
 " Clipboard options
 set clipboard+=unnamed " Yanks go on clipboard instead
-set pastetoggle=<F10>
-set paste
-
-" Completion options
-set wildmenu
-set wildmode=list:longest
+set paste pastetoggle=<F10>
 
 " Search options
 set incsearch
 set hlsearch
 set ignorecase
+set smartcase
 
 " XDG configuration
 set viminfo+=n$XDG_CONFIG_HOME/vim/viminfo
 set directory=$XDG_CACHE_HOME/vim
 set backupdir=$XDG_CACHE_HOME/vim
+
+" Remove trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
