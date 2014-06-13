@@ -214,7 +214,7 @@ alias sl="ls"
 alias diff="diff -u"
 
 # simple webserver
-alias http="python -m http.server"
+alias mkhttp="python -m http.server"
 
 # json prettify
 alias json="python -m json.tool"
