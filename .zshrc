@@ -222,9 +222,6 @@ alias json="python -m json.tool"
 # Alias make to a proper amount of cores
 alias make="make -j$(nproc)"
 
-# get public ip
-alias myip="curl ifconfig.me"
-
 # octal+text permissions for files
 alias perms="stat -c '%A %a %n'"
 
@@ -281,6 +278,24 @@ alias launch="launch " # expand aliases
 # urlencode text
 function urlencode {
 	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+}
+
+# get public ip
+function myip() {
+	local api
+	case "$1" in
+		"-4")
+			api="http://v4.ipv6-test.com/api/myip.php"
+			;;
+		"-6")
+			api="http://v6.ipv6-test.com/api/myip.php"
+			;;
+		*)
+			api="http://ipv6-test.com/api/myip.php"
+			;;
+	esac
+	curl "$api"
+	echo # Newline.
 }
 
 # Create short urls via http://goo.gl using curl(1).
