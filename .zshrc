@@ -294,7 +294,7 @@ function myip() {
 			api="http://ipv6-test.com/api/myip.php"
 			;;
 	esac
-	curl "$api"
+	curl -s "$api"
 	echo # Newline.
 }
 
