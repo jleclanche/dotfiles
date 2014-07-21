@@ -8,6 +8,7 @@ set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after
 execute pathogen#infect()
 let g:airline_powerline_fonts = 1
 set statusline+=%{fugitive#statusline()}
+let g:vim_markdown_folding_disabled=1 " Disable markdown folding
 
 " UI options
 set cursorline " Highlight the current line
