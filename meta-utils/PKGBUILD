@@ -8,10 +8,12 @@ arch=('any')
 license=('custom:public domain')
 depends=(
 	'ack'
+	"acpi"
 	'beep'
 	'cabextract'
 	'dialog'
 	'fdupes'
+	"git"
 	'htop'
 	'iotop'
 	'hexedit'
@@ -20,7 +22,10 @@ depends=(
 	'lynx'
 	'mlocate'
 	'openssh'
+	"parted"
 	'perl-rename'
+	"pkgfile"
+	"proxychains"
 	'rsync'
 	'sshfs'
 	'strace'
@@ -30,6 +35,7 @@ depends=(
 	'unzip'
 	'wget'
 	'zsh'
+	"zsh-syntax-highlighting"
 )
 
 package() {
