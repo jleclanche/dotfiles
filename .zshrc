@@ -369,3 +369,8 @@ fi
 if [[ -e $XDG_CONFIG_HOME/zsh/profile ]]; then
 	source $XDG_CONFIG_HOME/zsh/profile
 fi
+
+# Check if $LANG is badly set as it causes issues
+if [[ $LANG == "C"  || $LANG == "" ]]; then
+	>&2 echo "$fg[red]The \$LANG variable is not set. This can cause a lot of problems.$reset_color"
+fi
