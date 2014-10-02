@@ -358,7 +358,7 @@ fi
 # virtualenvwrapper support
 # Remember to set $PROJECT_HOME in your profile file!
 if command -V virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
-	export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
+	export WORKON_HOME="$XDG_DATA_HOME/virtualenvs"
 	source virtualenvwrapper_lazy.sh
 	# Arch linux uses python3 by default, this is required to make python2-compatible projects
 	alias mkproject2="mkproject -p /usr/bin/python2"
