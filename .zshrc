@@ -177,10 +177,10 @@ bindkey "^e" edit-command-line
 # Make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-	function zle-line-init () {
+	function zle-line-init {
 		printf "%s" ${terminfo[smkx]}
 	}
-	function zle-line-finish () {
+	function zle-line-finish {
 		printf "%s" ${terminfo[rmkx]}
 	}
 	zle -N zle-line-init
@@ -242,7 +242,7 @@ bk() {
 }
 
 # display a list of supported colors
-function lscolors() {
+function lscolors {
 	((cols = $COLUMNS - 4))
 	s=$(printf %${cols}s)
 	for i in {000..$(tput colors)}; do
@@ -251,7 +251,7 @@ function lscolors() {
 }
 
 # get the content type of an http resource
-function htmime() {
+function htmime {
 	if [[ -z $1 ]]; then
 		print "USAGE: htmime <URL>"
 		return 1
@@ -283,7 +283,7 @@ function urlencode {
 }
 
 # get public ip
-function myip() {
+function myip {
 	local api
 	case "$1" in
 		"-4")
@@ -303,7 +303,7 @@ function myip() {
 # Create short urls via http://goo.gl using curl(1).
 # Contributed back to grml zshrc
 # API reference: https://code.google.com/apis/urlshortener/
-function zurl() {
+function zurl {
 	if [[ -z $1 ]]; then
 		print "USAGE: $0 <URL>"
 		return 1
