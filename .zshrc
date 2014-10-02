@@ -98,7 +98,9 @@ setopt promptsubst # required for git plugin
 export TERM="xterm-256color"
 
 # ls colors (provided by dircolors)
-eval "$(dircolors -b)"
+if command -V dircolors >/dev/null 2>&1; then
+	eval "$(dircolors -b)"
+fi
 
 # Color aliases
 alias ls="ls -F --color=auto"
