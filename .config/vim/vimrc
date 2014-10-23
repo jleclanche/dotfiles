@@ -32,6 +32,7 @@ set tabstop=4
 " Clipboard options
 set clipboard+=unnamed " Yanks go on clipboard instead
 set paste pastetoggle=<F10>
+set viminfo='50,<1000,s100,h " Set max buffer size to 1000 lines (default 50)
 
 " Search options
 set incsearch

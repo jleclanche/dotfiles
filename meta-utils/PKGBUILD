@@ -11,6 +11,7 @@ depends=(
 	"acpi"
 	'beep'
 	'cabextract'
+	"dash"
 	'dialog'
 	'fdupes'
 	"git"
@@ -33,7 +34,9 @@ depends=(
 	'tree'
 	'unrar'
 	'unzip'
+	"vim-minimal"
 	'wget'
+	"wpa_supplicant"
 	'zsh'
 	"zsh-syntax-highlighting"
 )
