@@ -43,6 +43,7 @@ read y
 if [[ "$y" == "y" || "$y" == "Y" ]]; then
 	pacman -S syslinux --noconfirm
 	syslinux-install_update -iam
+	echo "WARNING: syslinux autodetection can be erroneous. You may need to edit /boot/syslinux/syslinux.cfg."
 fi
 
 echo "Creating a default user. This user will be part of the wheel group and as such will be able to use sudo."
