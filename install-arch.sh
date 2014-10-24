@@ -44,3 +44,15 @@ if [[ "$y" == "y" || "$y" == "Y" ]]; then
 	pacman -S syslinux --noconfirm
 	syslinux-install_update -iam
 fi
+
+echo "Creating a default user. This user will be part of the wheel group and as such will be able to use sudo."
+echo -n "Please enter a username (leave blank to skip): "
+read username
+echo
+
+if [[ "$username" != "" ]]; then
+	useradd $username --create-home -s /usr/bin/zsh -g users -G wheel
+	echo "Created user $username"
+	sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+	passwd $username
+fi
