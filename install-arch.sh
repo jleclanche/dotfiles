@@ -57,3 +57,6 @@ if [[ "$username" != "" ]]; then
 	sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 	passwd $username
 fi
+
+# enable ntpd
+systemctl enable systemd-timesyncd.service
