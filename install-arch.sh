@@ -35,9 +35,6 @@ makepkg --asroot -s --noconfirm
 pacman -U *.xz --noconfirm
 rm *.xz
 
-# Replace sh by dash
-ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
-
 echo -n "Do you want to install syslinux? [y/N] "
 read y
 if [[ "$y" == "y" || "$y" == "Y" ]]; then
@@ -58,5 +55,13 @@ if [[ "$username" != "" ]]; then
 	passwd $username
 fi
 
+# Basic system configuration
+
+echo "Replacing /usr/bin/sh by dash. Reinstall core/bash to revert."
+ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
+
 # enable ntpd
 systemctl enable systemd-timesyncd.service
+
+# enable color output for pacman
+sed -i "s/#Color/Color/" /etc/pacman.conf
