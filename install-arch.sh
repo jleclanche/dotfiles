@@ -29,20 +29,6 @@ ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 echo "Please enter password for root user."
 passwd
 
-# install some basic stuff
-cd meta-utils
-makepkg --asroot -s --noconfirm
-pacman -U *.xz --noconfirm
-rm *.xz
-
-echo -n "Do you want to install syslinux? [y/N] "
-read y
-if [[ "$y" == "y" || "$y" == "Y" ]]; then
-	pacman -S syslinux --noconfirm
-	syslinux-install_update -iam
-	echo "WARNING: syslinux autodetection can be erroneous. You may need to edit /boot/syslinux/syslinux.cfg."
-fi
-
 echo "Creating a default user. This user will be part of the wheel group and as such will be able to use sudo."
 echo -n "Please enter a username (leave blank to skip): "
 read username
@@ -53,6 +39,21 @@ if [[ "$username" != "" ]]; then
 	echo "Created user $username"
 	sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 	passwd $username
+
+	echo "Installing core utilities (meta-utils)"
+	cp -r meta-utils /tmp/meta-utils
+	cd /tmp/meta-utils
+	sudo -u $username makepkg -s --noconfirm
+	pacman -U *.xz --noconfirm
+	rm -rf /tmp/meta-utils
+fi
+
+echo -n "Do you want to install syslinux? [y/N] "
+read y
+if [[ "$y" == "y" || "$y" == "Y" ]]; then
+	pacman -S syslinux --noconfirm
+	syslinux-install_update -iam
+	echo "WARNING: syslinux autodetection can be erroneous. You may need to edit /boot/syslinux/syslinux.cfg."
 fi
 
 # Basic system configuration
