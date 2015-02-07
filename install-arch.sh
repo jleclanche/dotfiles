@@ -58,8 +58,12 @@ fi
 
 # Basic system configuration
 
-echo "Replacing /usr/bin/sh by dash. Reinstall core/bash to revert."
-ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
+if [[ -f /bin/dash ]]; then
+	echo "Replacing /usr/bin/sh by dash. Reinstall core/bash to revert."
+	ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
+else
+	echo "Not installing dash. Remember to install meta-utils!"
+fi
 
 # enable ntpd
 systemctl enable systemd-timesyncd.service
