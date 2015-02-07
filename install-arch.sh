@@ -70,3 +70,8 @@ systemctl enable systemd-timesyncd.service
 
 # enable color output for pacman
 sed -i "s/#Color/Color/" /etc/pacman.conf
+
+if [[ -f /etc/vimrc ]]; then
+	echo "Enabling some base vim settings"
+	printf "%s\n" "syntax on" "filetype plugin indent on" "colorscheme darkblue" "set number" >> /etc/vimrc
+fi
