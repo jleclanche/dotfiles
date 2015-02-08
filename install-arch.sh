@@ -48,13 +48,31 @@ if [[ "$username" != "" ]]; then
 	rm -rf /tmp/meta-utils
 fi
 
-echo -n "Do you want to install syslinux? [y/N] "
-read y
-if [[ "$y" == "y" || "$y" == "Y" ]]; then
-	pacman -S syslinux --noconfirm
-	syslinux-install_update -iam
-	echo "WARNING: syslinux autodetection can be erroneous. You may need to edit /boot/syslinux/syslinux.cfg."
+if [[ -d /sys/firmware/efi/efivars ]]; then
+	echo -n "Do you want to install gummiboot? [y/N] "
+	read y
+	if [[ "$y" == "y" || "$y" == "Y" ]]; then
+		pacman -S gummiboot --noconfirm
+		partition=$(findmnt --noheadings --output=source /)
+		uuid=$(blkid -o value -s PARTUUID $partition)
+		printf "%s\n" "default arch" "timeout 3" >> /boot/loader/loader.conf
+		printf "%s\n" \
+			"title	Arch Linux" \
+			"linux	/vmlinuz-linux" \
+			"initrd	/initramfs-linux.img" \
+			"options	root=PARTUUID=$uuid rw" > /boot/loader/entries/arch.conf
+		echo "Configured in /boot/loader/loader.conf and /boot/loader/entries/arch.conf"
+	fi
+else
+	echo -n "Do you want to install syslinux? [y/N] "
+	read y
+	if [[ "$y" == "y" || "$y" == "Y" ]]; then
+		pacman -S syslinux --noconfirm
+		syslinux-install_update -iam
+		echo "WARNING: syslinux autodetection can be erroneous. You may need to edit /boot/syslinux/syslinux.cfg."
+	fi
 fi
+
 
 # Basic system configuration
 
