@@ -27,7 +27,7 @@ depends=(
 	"parted"
 	"perl-rename"
 	"pkgfile"
-	"proxychains"
+	"proxychains-ng"
 	"rsync"
 	"sshfs"
 	"strace"
