@@ -4,40 +4,40 @@ pkgname=meta-utils
 pkgver=1.0
 pkgrel=1
 pkgdesc="Command-line utilities"
-arch=('any')
-license=('custom:public domain')
+arch=("any")
+license=("custom:public domain")
 depends=(
-	'ack'
+	"ack"
 	"acpi"
-	'beep'
-	'cabextract'
+	"beep"
+	"cabextract"
 	"dash"
-	'dialog'
-	'fdupes'
+	"dialog"
+	"fdupes"
 	"git"
-	'htop'
-	'iotop'
-	'hexedit'
-	'lshw'
-	'lsof'
-	'lynx'
-	'mlocate'
-	'openssh'
+	"htop"
+	"iotop"
+	"hexedit"
+	"lshw"
+	"lsof"
+	"lynx"
+	"mlocate"
+	"openssh"
 	"parted"
-	'perl-rename'
+	"perl-rename"
 	"pkgfile"
 	"proxychains"
-	'rsync'
-	'sshfs'
-	'strace'
-	'traceroute'
-	'tree'
-	'unrar'
-	'unzip'
+	"rsync"
+	"sshfs"
+	"strace"
+	"traceroute"
+	"tree"
+	"unrar"
+	"unzip"
 	"vim-minimal"
-	'wget'
+	"wget"
 	"wpa_supplicant"
-	'zsh'
+	"zsh"
 	"zsh-syntax-highlighting"
 )
 
