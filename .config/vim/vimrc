@@ -15,6 +15,7 @@ set cursorline " Highlight the current line
 set laststatus=2 " Always show status line
 set mouse=a " Enable mouse input in all modes
 set number " Enable line numbers
+set relativenumber " Hybrid relative line numbers
 set showmatch " Show matching brackets
 set wildmenu " Completion menu
 set wildmode=list:longest
