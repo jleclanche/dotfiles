@@ -83,6 +83,10 @@ fi
 
 # Basic system configuration
 
+# Console font (see man 5 vconsole.conf)
+# Setting to eurlatgr, courtesy of Fedora
+echo "FONT=eurlatgr" >> /etc/vconsole.conf
+
 if [[ -f /bin/dash ]]; then
 	echo "Replacing /usr/bin/sh by dash. Reinstall core/bash to revert."
 	ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
