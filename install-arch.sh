@@ -60,6 +60,7 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
 	read y
 	if [[ "$y" == "y" || "$y" == "Y" ]]; then
 		pacman -S gummiboot --noconfirm
+		gummiboot install
 		partition=$(findmnt --noheadings --output=source /)
 		uuid=$(blkid -o value -s PARTUUID $partition)
 		printf "%s\n" "default arch" "timeout 3" >> /boot/loader/loader.conf
