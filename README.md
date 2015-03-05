@@ -3,7 +3,7 @@ dotfiles
 
 .zshrc and cousins
 
-![Screenshot](https://mediacru.sh/2g86pkZOOhR_.png "Screenshot of zsh with the .zshrc")
+![image](https://cloud.githubusercontent.com/assets/235410/6504067/7899cc44-c333-11e4-9b72-26cf4493841a.png "Screenshot of a ZSH session")
 
 
 ##Features
