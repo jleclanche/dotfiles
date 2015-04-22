@@ -221,9 +221,6 @@ alias mkhttp="python -m http.server"
 # json prettify
 alias json="python -m json.tool"
 
-# Alias make to a proper amount of cores
-alias make="make -j$(nproc)"
-
 # octal+text permissions for files
 alias perms="stat -c '%A %a %n'"
 
