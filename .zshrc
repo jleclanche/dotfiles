@@ -132,7 +132,6 @@ zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character t
 zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
 zstyle ":completion:*" menu select=long
 zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
-zstyle ":completion:*" use-compctl false
 zstyle ":completion:*" verbose true
 
 zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
