@@ -10,3 +10,6 @@
 [submodule ".config/vim/bundle/vim-go"]
 	path = .config/vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule ".config/vim/bundle/YouCompleteMe"]
+	path = .config/vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
