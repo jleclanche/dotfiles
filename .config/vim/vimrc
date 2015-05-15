@@ -46,3 +46,5 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Alias "write as sudo" as :w!!
 cmap w!! w !sudo tee > /dev/null %
+
+colorscheme Tomorrow-Night-Bright
