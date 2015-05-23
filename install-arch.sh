@@ -100,8 +100,9 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 echo "NTP has been enabled and hardware clock will be in UTC. More information: https://wiki.archlinux.org/index.php/Time"
 
-# enable color output for pacman
+# Basic pacman configuration
 sed -i "s/#Color/Color/" /etc/pacman.conf
+sed -i "s/#VerbosePkgLists/VerbosePkgLists/" /etc/pacman.conf
 
 if [[ -f /etc/vimrc ]]; then
 	echo "Enabling some base vim settings"
