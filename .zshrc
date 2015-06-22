@@ -44,26 +44,26 @@ fi
 
 # basedir defaults, in case they're not already set up.
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-if [[ -z $XDG_DATA_HOME ]]; then
-	export XDG_DATA_HOME=$HOME/.local/share
+if [[ -z "$XDG_DATA_HOME" ]]; then
+	export XDG_DATA_HOME="$HOME/.local/share"
 fi
 
-if [[ -z $XDG_CONFIG_HOME ]]; then
-	export XDG_CONFIG_HOME=$HOME/.config
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+	export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
-if [[ -z $XDG_CACHE_HOME ]]; then
-	export XDG_CACHE_HOME=$HOME/.cache
+if [[ -z "$XDG_CACHE_HOME" ]]; then
+	export XDG_CACHE_HOME="$HOME/.cache"
 fi
 
-if [[ -z $XDG_DATA_DIRS ]]; then
-	export XDG_DATA_DIRS=/usr/local/share:/usr/share
+if [[ -z "$XDG_DATA_DIRS" ]]; then
+	export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 fi
 
-if [[ -z $XDG_CONFIG_DIRS ]]; then
-	export XDG_CONFIG_DIRS=/etc/xdg
+if [[ -z "$XDG_CONFIG_DIRS" ]]; then
+	export XDG_CONFIG_DIRS="/etc/xdg"
 else
-	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
+	export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 fi
 
 # add ~/bin to $PATH
@@ -71,7 +71,7 @@ path=(~/bin $path)
 # add ~/.config/zsh/completion to completion paths
 # NOTE: this needs to be a directory with 0755 permissions, otherwise you will
 # get "insecure" warnings on shell load!
-fpath=($XDG_CONFIG_HOME/zsh/completion $fpath)
+fpath=("$XDG_CONFIG_HOME/zsh/completion" $fpath)
 
 
 ##
@@ -81,7 +81,7 @@ fpath=($XDG_CONFIG_HOME/zsh/completion $fpath)
 # Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=$XDG_CACHE_HOME/shell_history
+HISTFILE="$XDG_CACHE_HOME/shell_history"
 
 # shell options
 setopt autocd # assume "cd" when a command is a directory
@@ -371,8 +371,8 @@ if command -V virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
 fi
 
 # User profile
-if [[ -e $XDG_CONFIG_HOME/zsh/profile ]]; then
-	source $XDG_CONFIG_HOME/zsh/profile
+if [[ -e "$XDG_CONFIG_HOME/zsh/profile" ]]; then
+	source "$XDG_CONFIG_HOME/zsh/profile"
 fi
 
 # Check if $LANG is badly set as it causes issues
