@@ -9,6 +9,7 @@ execute pathogen#infect()
 let g:airline_powerline_fonts = 1
 set statusline+=%{fugitive#statusline()}
 let g:vim_markdown_folding_disabled=1 " Disable markdown folding
+let g:syntastic_python_flake8_args = "--ignore=W191"
 
 " UI options
 set cursorline " Highlight the current line
