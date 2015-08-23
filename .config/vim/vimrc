@@ -22,6 +22,7 @@ set relativenumber " Hybrid relative line numbers
 set showmatch " Show matching brackets
 set wildmenu " Completion menu
 set wildmode=list:longest
+set ff=unix " Display DOS line endings
 
 " Indentation options
 set list listchars=tab:»\ ,trail:·
