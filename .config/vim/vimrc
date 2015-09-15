@@ -9,7 +9,7 @@ execute pathogen#infect()
 let g:airline_powerline_fonts = 1
 set statusline+=%{fugitive#statusline()}
 let g:vim_markdown_folding_disabled=1 " Disable markdown folding
-let g:syntastic_python_flake8_args = "--ignore=W191 --max-line-length=92"
+let g:syntastic_python_flake8_args = "--ignore=W191,E702 --max-line-length=92"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
