@@ -100,15 +100,6 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 echo "NTP has been enabled and hardware clock will be in UTC. More information: https://wiki.archlinux.org/index.php/Time"
 
-if [[ -f /etc/ssh/sshd_config ]]; then
-	# Set PermitRootLogin appropriately for ssh
-	while [[ "$y" != "yes" && "$y" != "no" && "$y" != "without-password" ]]; do
-		echo "Do you want to permit SSH root logins? (Enter exact value: [yes | no | without-password])"
-		read y
-	done
-	sed -i "s/#PermitRootLogin.*/PermitRootLogin $y/" /etc/ssh/sshd_config
-fi
-
 if [[ -f /etc/vimrc ]]; then
 	echo "Enabling some base vim settings"
 	printf "%s\n" "syntax on" "filetype plugin indent on" "colorscheme darkblue" "set number" >> /etc/vimrc
