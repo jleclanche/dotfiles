@@ -39,20 +39,6 @@ if [[ "$username" != "" ]]; then
 	echo "Created user $username"
 	sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 	passwd $username
-
-	echo "Installing core utilities (meta-utils)"
-	cp -r meta-utils /tmp/meta-utils
-	cd /tmp/meta-utils
-	sudo -u $username makepkg -s --noconfirm
-	pacman -U *.xz --noconfirm
-	rm -rf /tmp/meta-utils
-
-	# Set PermitRootLogin appropriately for ssh
-	while [[ "$y" != "yes" && "$y" != "no" && "$y" != "without-password" ]]; do
-		echo "Do you want to permit SSH root logins? (Enter exact value: [yes | no | without-password])"
-		read y
-	done
-	sed -i "s/#PermitRootLogin.*/PermitRootLogin $y/" /etc/ssh/sshd_config
 fi
 
 if [[ -d /sys/firmware/efi/efivars ]]; then
@@ -88,11 +74,22 @@ fi
 # Setting to eurlatgr, courtesy of Fedora
 echo "FONT=eurlatgr" >> /etc/vconsole.conf
 
+# Basic pacman configuration
+sed -i "s/#Color/Color/" /etc/pacman.conf
+sed -i "s/#VerbosePkgLists/VerbosePkgLists/" /etc/pacman.conf
+
+echo "Configuring repository mirrors..."
+echo 'Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+pacman -Syy
+if [[ -f base-packages ]]; then
+	pacman -S $(cat base-packages)
+fi
+
 if [[ -f /bin/dash ]]; then
 	echo "Replacing /usr/bin/sh by dash. Reinstall core/bash to revert."
 	ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
 else
-	echo "Not installing dash. Remember to install meta-utils!"
+	echo "Not setting up dash."
 fi
 
 mkinitcpio -p linux
@@ -103,9 +100,14 @@ timedatectl set-ntp true
 hwclock --systohc --utc
 echo "NTP has been enabled and hardware clock will be in UTC. More information: https://wiki.archlinux.org/index.php/Time"
 
-# Basic pacman configuration
-sed -i "s/#Color/Color/" /etc/pacman.conf
-sed -i "s/#VerbosePkgLists/VerbosePkgLists/" /etc/pacman.conf
+if [[ -f /etc/ssh/sshd_config ]]; then
+	# Set PermitRootLogin appropriately for ssh
+	while [[ "$y" != "yes" && "$y" != "no" && "$y" != "without-password" ]]; do
+		echo "Do you want to permit SSH root logins? (Enter exact value: [yes | no | without-password])"
+		read y
+	done
+	sed -i "s/#PermitRootLogin.*/PermitRootLogin $y/" /etc/ssh/sshd_config
+fi
 
 if [[ -f /etc/vimrc ]]; then
 	echo "Enabling some base vim settings"
