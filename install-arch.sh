@@ -79,7 +79,7 @@ sed -i "s/#Color/Color/" /etc/pacman.conf
 sed -i "s/#VerbosePkgLists/VerbosePkgLists/" /etc/pacman.conf
 
 echo "Configuring repository mirrors..."
-echo 'Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+echo 'Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 pacman -Syy
 if [[ -f base-packages ]]; then
 	pacman -S $(cat base-packages)
