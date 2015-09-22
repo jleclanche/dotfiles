@@ -23,9 +23,6 @@ sed -i "s/#en_US.UTF-8/en_US.UTF-8/" /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 
-echo "Setting timezone to UTC. Change it by updating the /etc/localtime symlink."
-ln -sf /usr/share/zoneinfo/UTC /etc/localtime
-
 echo "Please enter password for root user."
 passwd
 
@@ -96,6 +93,7 @@ else
 fi
 
 # Time settings
+timedatectl set-timezone UTC
 timedatectl set-ntp true
 hwclock --systohc --utc
 echo "NTP has been enabled and hardware clock will be in UTC. More information: https://wiki.archlinux.org/index.php/Time"
