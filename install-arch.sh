@@ -61,7 +61,7 @@ else
 	echo -n "Do you want to install syslinux? [y/N] "
 	read y
 	if [[ "$y" == "y" || "$y" == "Y" ]]; then
-		pacman -S syslinux --noconfirm
+		pacman -S syslinux gptfdisk --noconfirm
 		syslinux-install_update -iam
 		echo "WARNING: syslinux autodetection can be erroneous. You may need to edit /boot/syslinux/syslinux.cfg."
 	fi
