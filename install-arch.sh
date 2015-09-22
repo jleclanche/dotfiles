@@ -92,6 +92,8 @@ else
 	echo "Not installing dash. Remember to install meta-utils!"
 fi
 
+mkinitcpio -p linux
+
 # Time settings
 timedatectl set-timezone UTC
 timedatectl set-ntp true
