@@ -5,10 +5,13 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-echo -n "Enter a hostname for this machine: "
-read hostname
-echo
-echo $hostname > /etc/hostname
+
+if [[ ! -f /etc/hostname ]]; then
+	echo -n "Enter a hostname for this machine: "
+	read hostname
+	echo
+	echo $hostname > /etc/hostname
+fi
 
 # Make zsh the default shell
 chsh -s /usr/bin/zsh
