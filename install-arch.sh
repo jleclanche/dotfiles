@@ -42,11 +42,10 @@ if [[ "$username" != "" ]]; then
 fi
 
 if [[ -d /sys/firmware/efi/efivars ]]; then
-	echo -n "Do you want to install gummiboot? [y/N] "
+	echo -n "Do you want to install systemd-boot? [y/N] "
 	read y
 	if [[ "$y" == "y" || "$y" == "Y" ]]; then
-		pacman -S gummiboot --noconfirm
-		gummiboot install
+		bootctl install
 		partition=$(findmnt --noheadings --output=source /)
 		uuid=$(blkid -o value -s PARTUUID $partition)
 		printf "%s\n" "default arch" "timeout 3" >> /boot/loader/loader.conf
