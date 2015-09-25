@@ -1,10 +1,10 @@
 // /**
-// * Devrix Latin+common ASCII keyboard - version 2.1 (2014-02-25)
-// * Multiuse keyboard adapted for activities requiring common use of special ASCII characters
-// * such as programming, mathematics, etc.
-// * Devrix is adaptable to any keyboard layout, keeping exclusivity the two rightmost rows as
-// * well as the third rightmost alt-gr row.
-// * Jerome Leclanche <jerome@leclan.ch> - This layout is in the Public Domain
+// * Drix EU Latin - version 2.2 (2015-09-25)
+// * Latin layout based on classic US qwerty, with enhanced access to special ASCII characters
+// * Designed for programmers and with access to dead keys and special characters for most
+// * european languages. `m' key rebound to match azerty.
+// * Jerome Leclanche <jerome@leclan.ch>
+// * This layout is in the Public Domain
 // *
 // * ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
 // * │ ~ ~ │ " ´ │ ' ` │ ^ ^ │ ` ¨ │ ´ ° │ 6 6 │ 7 7 │ 8 ¸ │ 9 9 │ | ¬ │ _ ± │ = ≠ ┃Backspace┃
@@ -14,7 +14,7 @@
 // * ┃ ↹     ┃ q ø │ w w │ e € │ r ® │ t ™ │ y ¥ │ u µ │ i ‘ │ o œ │ p π │ ( { │ ) } ┃ Enter ┃
 // * ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
 // * ┃Caps    ┃ A Æ │ S ß │ D ↓ │ F ª │ G G │ H H │ J ” │ K „ │ L ← │ M º │ % ¢ │ & × ┃      ┃
-// * ┃Lock  ⇬ ┃ a æ │ s $ │ d þ │ f ƒ │ g g │ h h │ j “ │ k ‚ │ l £ │ m ^ │ # ~ │ * $ ┃      ┃
+// * ┃Lock  ⇬ ┃ a æ │ s § │ d þ │ f ƒ │ g g │ h h │ j “ │ k ‚ │ l £ │ m ^ │ # ~ │ * $ ┃      ┃
 // * ┣━━━━━━┳━┹───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┷━━━━━┻━━━━━━┫
 // * ┃Shift ┃ > ≥ │ Z ¶ │ X ÷ │ C ¢ │ V V │ B B │ N N │ ? ¿ │ , · │ ; ´ │ \ ¦ ┃Shift         ┃
 // * ┃ ⇧    ┃ < ≤ │ z § │ x × │ c © │ v v │ b b │ n n │ ! ¡ │ . … │ : ` │ / | ┃ ⇧            ┃
@@ -55,13 +55,13 @@ xkb_symbols "basic" {
 	key <AD07> {[ u,           U,              mu,                   uparrow               ]}; // u U µ ↑
 	key <AD08> {[ i,           I,              leftsinglequotemark,  rightsinglequotemark  ]}; // i I ‘ ’
 	key <AD09> {[ o,           O,              oe,                   OE                    ]}; // o O œ Œ
-	key <AD10> {[ p,           P,              Greek_pi,             paragraph             ]}; // p P § ¶
+	key <AD10> {[ p,           P,              Greek_pi,             paragraph             ]}; // p P π ¶
 	key <AD11> {[ parenleft,   bracketleft,    braceleft,            guillemotleft         ]}; // ( [ { «
 	key <AD12> {[ parenright,  bracketright,   braceright,           guillemotright        ]}; // ) ] } »
 
 	// Third row
 	key <AC01> {[ a,           A,              ae,                   AE                    ]}; // a A æ Æ
-	key <AC02> {[ s,           S,              dollar,               ssharp                ]}; // s S $ ß
+	key <AC02> {[ s,           S,              section,              ssharp                ]}; // s S § ß
 	key <AC03> {[ d,           D,              thorn,                downarrow             ]}; // d D þ ↓
 	key <AC04> {[ f,           F,              0x1000083,            ordfeminine           ]}; // f F ƒ ª
 	key <AC05> {[ g,           G,              g,                    G                     ]}; // g G g G
@@ -74,7 +74,7 @@ xkb_symbols "basic" {
 
 	// Fourth row
 	key <LSGT> {[ less,        greater,        lessthanequal,        greaterthanequal      ]}; // < > ≤ ≥
-	key <AB01> {[ z,           Z,              section,              paragraph             ]}; // z Z § ¶
+	key <AB01> {[ z,           Z,              Greek_zeta,           Z                     ]}; // z Z ζ Z
 	key <AB02> {[ x,           X,              multiply,             division              ]}; // x X × ÷
 	key <AB03> {[ c,           C,              copyright,            cent                  ]}; // c C © ¢
 	key <AB04> {[ v,           V,              v,                    V                     ]}; // v V v V
