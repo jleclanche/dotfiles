@@ -84,7 +84,7 @@ if [[ -f base-packages ]]; then
 	pacman -S $(cat base-packages)
 fi
 
-if [[ -f /bin/dash ]]; then
+if [[ -f /usr/bin/dash ]]; then
 	echo "Replacing /usr/bin/sh by dash. Reinstall core/bash to revert."
 	ln -sf --backup /usr/bin/dash /usr/bin/sh && rm "/usr/bin/sh~"
 else
