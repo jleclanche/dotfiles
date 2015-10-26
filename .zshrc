@@ -109,7 +109,6 @@ fi
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
-alias dmesg="dmesg --color=auto"
 # make less accept color codes and re-output them
 alias less="less -R"
 
