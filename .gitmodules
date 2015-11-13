@@ -16,3 +16,6 @@
 [submodule ".config/vim/bundle/colorscheme-tomorrow"]
 	path = .config/vim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule ".config/vim/bundle/vim-qml"]
+	path = .config/vim/bundle/vim-qml
+	url = git@github.com:peterhoeg/vim-qml.git
