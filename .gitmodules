@@ -1,21 +1,21 @@
-[submodule ".config/vim/bundle/syntactic"]
-	path = .config/vim/bundle/syntactic
+[submodule ".config/nvim/bundle/syntactic"]
+	path = .config/nvim/bundle/syntactic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".config/vim/bundle/vim-airline"]
-	path = .config/vim/bundle/vim-airline
+[submodule ".config/nvim/bundle/vim-airline"]
+	path = .config/nvim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule ".config/vim/bundle/vim-fugitive"]
-	path = .config/vim/bundle/vim-fugitive
+[submodule ".config/nvim/bundle/vim-fugitive"]
+	path = .config/nvim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".config/vim/bundle/vim-go"]
-	path = .config/vim/bundle/vim-go
+[submodule ".config/nvim/bundle/vim-go"]
+	path = .config/nvim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule ".config/vim/bundle/YouCompleteMe"]
-	path = .config/vim/bundle/YouCompleteMe
+[submodule ".config/nvim/bundle/YouCompleteMe"]
+	path = .config/nvim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule ".config/vim/bundle/colorscheme-tomorrow"]
-	path = .config/vim/bundle/colorscheme-tomorrow
+[submodule ".config/nvim/bundle/colorscheme-tomorrow"]
+	path = .config/nvim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule ".config/vim/bundle/vim-qml"]
-	path = .config/vim/bundle/vim-qml
+[submodule ".config/nvim/bundle/vim-qml"]
+	path = .config/nvim/bundle/vim-qml
 	url = git@github.com:peterhoeg/vim-qml.git

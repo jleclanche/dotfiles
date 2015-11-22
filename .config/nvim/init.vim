@@ -1,8 +1,4 @@
-" XDG configuration
-set directory=$XDG_CACHE_HOME/vim
-set backupdir=$XDG_CACHE_HOME/vim
-set viminfo+=n$XDG_CACHE_HOME/viminfo
-set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after
+syntax on
 
 " Plugins
 execute pathogen#infect()
