@@ -6,7 +6,7 @@ dotfiles
 ![image](https://cloud.githubusercontent.com/assets/235410/6504067/7899cc44-c333-11e4-9b72-26cf4493841a.png "Screenshot of a ZSH session")
 
 
-##Features
+## Features
 
 * [XDG basedirs](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 * Powerline support if installed
@@ -18,7 +18,7 @@ dotfiles
 * Add your extra stuff in $XDG_CONFIG_HOME/zsh/profile
   * Put your custom completions in $XDG_CONFIG_HOME/zsh/completion/
 
-##Extra functions
+## Extra functions
 
 * **bk** \<file\>: Back up a file
 * **htmime** \<url\>: Get the content type of a URL
@@ -30,7 +30,7 @@ dotfiles
 * **zurl** \<url\>: Shorten a URL (uses goo.gl service)
 
 
-##Extra aliases
+## Extra aliases
 
 * **http**: Run a webserver in cwd (uses Python 3 http.server)
 * **json**: Indent and prettify json code
@@ -38,9 +38,17 @@ dotfiles
 * **perms** \<args\>: Print file permissions (octal and text)
 
 
-##Other fun stuff
+## Other fun stuff
 
 * Ctrl+E: Edit the current line in your $EDITOR
 * Expand "...": Typing ... is expanded to ../..; .... expands to ../../.. and so on.
 * Typing a naked directory assumes "cd <dir>" is implied.
 * The "⇄" icon will show up on the right side of the tty when the shell is running in a SSH session.
+
+
+## Compatibility
+
+This script requires Zsh >= 5.0. A 4.0-compatible version, with less features,
+is available in the `compat/` folder.
+NOTE: Cygwin users should set `TERM=cygwin` in their profile file, otherwise
+keybindings may be messed up.
