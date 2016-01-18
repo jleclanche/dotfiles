@@ -18,4 +18,10 @@
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule ".config/nvim/bundle/vim-qml"]
 	path = .config/nvim/bundle/vim-qml
-	url = git@github.com:peterhoeg/vim-qml.git
+	url = https://github.com/peterhoeg/vim-qml.git
+[submodule ".config/nvim/bundle/syntastic"]
+	path = .config/nvim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".config/nvim/bundle/vim-tomorrow-theme"]
+	path = .config/nvim/bundle/vim-tomorrow-theme
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git
