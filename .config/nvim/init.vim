@@ -1,7 +1,17 @@
 syntax on
 
 " Plugins
-execute pathogen#infect()
+call plug#begin("~/.config/nvim/plugged")
+	Plug 'jiangmiao/auto-pairs'
+	" Plug 'cohama/lexima.vim'
+	Plug 'scrooloose/syntastic'
+	Plug 'bling/vim-airline'
+	Plug 'tpope/vim-fugitive'
+	Plug 'fatih/vim-go', {'for': 'go'}
+	Plug 'peterhoeg/vim-qml'
+	Plug 'chriskempson/vim-tomorrow-theme'
+call plug#end()
+
 let g:airline_powerline_fonts = 1
 set statusline+=%{fugitive#statusline()}
 let g:vim_markdown_folding_disabled=1 " Disable markdown folding
