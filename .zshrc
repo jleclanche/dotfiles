@@ -357,6 +357,8 @@ precmd() {
 # Syntax highlighting plugin
 if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
 	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # virtualenvwrapper support
