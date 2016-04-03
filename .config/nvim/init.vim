@@ -46,6 +46,7 @@ call plug#begin("~/.config/nvim/plugged")
 	Plug 'scrooloose/syntastic'
 	Plug 'bling/vim-airline'
 	Plug 'tpope/vim-fugitive'
+	Plug 'tomtom/tcomment_vim'
 	Plug 'fatih/vim-go', {'for': 'go'}
 	Plug 'peterhoeg/vim-qml'
 	Plug 'chriskempson/vim-tomorrow-theme'
@@ -62,3 +63,9 @@ let g:syntastic_auto_loc_list = 1
 if exists('g:loaded_fugitive')
 	set statusline+=%{fugitive#statusline()}
 endif
+
+" tcomment rebind to `cc`
+let g:tcommentMapLeader1 = ''
+noremap <silent> cc :TComment<cr>
+vnoremap <silent> cc :TCommentMaybeInline<cr>gv
+" inoremap <silent> cc <c-o>:TComment<cr>
