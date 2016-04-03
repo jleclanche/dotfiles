@@ -204,10 +204,8 @@ bindkey -M isearch . self-insert # history search fix
 
 # some more ls aliases
 alias l="ls -CF"
-alias ll="ls -l"
+alias ll="ls -lh"
 alias la="ls -A"
-alias lh="ls -lh"
-alias lash="ls -lAsh"
 alias sl="ls"
 
 # Make unified diff syntax the default
