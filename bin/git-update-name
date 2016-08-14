@@ -1,0 +1,19 @@
+#!/bin/bash
+
+git filter-branch -f --env-filter '
+old="'"$1"'"
+new="'"$2"'"
+am="$GIT_AUTHOR_NAME"
+cm="$GIT_COMMITTER_NAME"
+
+if [ "$GIT_COMMITTER_NAME" = "$old" ]; then
+	cm="$new"
+fi
+
+if [ "$GIT_AUTHOR_NAME" = "$old" ]; then
+	am="$new"
+fi
+
+export GIT_AUTHOR_NAME="$am"
+export GIT_COMMITTER_NAME="$cm"
+'
