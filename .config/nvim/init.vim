@@ -47,9 +47,14 @@ call plug#begin("~/.config/nvim/plugged")
 	Plug 'bling/vim-airline'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tomtom/tcomment_vim'
-	Plug 'fatih/vim-go', {'for': 'go'}
-	Plug 'peterhoeg/vim-qml'
+	Plug 'editorconfig/editorconfig-vim'
 	Plug 'chriskempson/vim-tomorrow-theme'
+	Plug 'fatih/vim-go', {'for': 'go'}
+	Plug 'cespare/vim-toml'
+	Plug 'hashivim/vim-terraform'
+	Plug 'ianks/vim-tsx'
+	Plug 'leafgarland/typescript-vim'
+	Plug 'peterhoeg/vim-qml'
 call plug#end()
 
 " Silent in case it's not set up yet
