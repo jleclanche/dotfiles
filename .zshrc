@@ -101,9 +101,7 @@ export TERM="xterm-256color"
 if command -V dircolors >/dev/null 2>&1; then
 	eval "$(dircolors -b)"
 	# Only alias ls colors if dircolors is installed
-	alias ls="ls -F --color=auto"
-	alias dir="dir --color=auto"
-	alias vdir="vdir --color=auto"
+	alias ls="ls -F --color=auto --group-directories-first"
 fi
 
 alias grep="grep --color=auto"
