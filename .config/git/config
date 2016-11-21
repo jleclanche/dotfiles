@@ -1,26 +1,28 @@
 [user]
-	email = jerome@leclan.ch
 	name = Jerome Leclanche
-[color]
-	diff = true
-	ui = true
-[receive]
-	denyCurrentBranch = ignore
+	email = jerome@leclan.ch
 [core]
 	autocrlf = input
 	eol = lf
-[push]
-	default = tracking
 [alias]
-	clog = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-	lol = "log --oneline --graph --decorate --all"
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ $`echo $VAR` = \\\"$OLD\\\" ]]; then export $VAR=\\\"$NEW\\\"; fi\" $@; }; f "
+	clog = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+	fpush = push --force-with-lease
+	lol = "log --oneline --graph --decorate --all"
 	merge-pr = "!f() { git fetch $1 $2; git branch _FETCH_HEAD FETCH_HEAD && git rebase HEAD _FETCH_HEAD && git checkout master && git merge --ff-only _FETCH_HEAD; git branch -d _FETCH_HEAD; }; f"
 [help]
 	autocorrect = 1
+[pull]
+	rebase = true
+[rebase]
+	autostash = true
+[log]
+	decorate = full
+[stash]
+	showPatch = true
+[push]
+	followTags = true
 [tar "tar.xz"]
 	command = xz -c
-[url "git://anongit.kde.org/"]
-	insteadOf = kde:
 [url "git@github.com"]
 	insteadOf = github:
