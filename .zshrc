@@ -78,10 +78,9 @@ fpath=("$XDG_CONFIG_HOME/zsh/completion" $fpath)
 # zsh configuration
 #
 
-# Keep 1000 lines of history within the shell and save it to ~/.cache/shell_history
+# Keep 1000 lines of history within the shell
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE="$XDG_CACHE_HOME/shell_history"
 
 # shell options
 setopt autocd # assume "cd" when a command is a directory
