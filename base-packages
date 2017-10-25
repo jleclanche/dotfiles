@@ -1,12 +1,22 @@
+# core
+git
+openssh
+python
+wget
+zsh
+
+# CLI utilities
 ack
-acpi
-beep
+bind-tools
+rsync
+strace
+traceroute
+tree
+unrar
+unzip
 cabextract
-dash
-dialog
 dnsutils
 fdupes
-git
 htop
 iotop
 hexedit
@@ -14,21 +24,25 @@ lshw
 lsof
 lynx
 mlocate
-openssh
 parted
 perl-rename
-pkgfile
 proxychains-ng
-python
-rsync
-sshfs
-strace
-traceroute
-tree
-unrar
-unzip
-vim-minimal
-wget
+whois
 wpa_supplicant
-zsh
 zsh-syntax-highlighting
+
+# Extras (arch + compat)
+acpi
+beep
+dialog
+macchanger
+pkgfile
+sshfs
+
+# Apps
+lxqt
+chromium
+keepassxc
+qbittorrent
+qterminal
+zuluCrypt
