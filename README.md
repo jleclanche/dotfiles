@@ -27,7 +27,6 @@ dotfiles
 * **launch** \<app\> [args]: Launch a binary, disowning it from the terminal immediately
 * **lscolors**: list all available colors
 * **urlencode** \<text\>: Return the url-encoded value of `text`
-* **zurl** \<url\>: Shorten a URL (uses goo.gl service)
 
 
 ## Extra aliases
