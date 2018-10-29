@@ -209,18 +209,20 @@ alias sl="ls"
 # Make unified diff syntax the default
 alias diff="diff -u"
 
-# simple webserver
-alias mkhttp="python -m http.server"
-
-# json prettify
-alias json="python -m json.tool"
-
 # octal+text permissions for files
 alias perms="stat -c '%A %a %n'"
 
 # expand sudo aliases
 alias sudo="sudo "
 
+# Default
+alias hexdump="hexdump --canonical"
+
+# Default
+alias xclip="xclip -selection clipboard"
+
+# Pastebin contents to sprunge.us
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 ##
 # Functions
@@ -268,9 +270,31 @@ function launch {
 }
 alias launch="launch " # expand aliases
 
-# urlencode text
+# Useful python aliases/functions
+
+# simple webserver to serve the current directory
+alias mkhttp="python -m http.server"
+
+# Prettify JSON:
+alias json="python -m json.tool"
+# Convert yaml to pretty JSON:
+alias yaml="python -c 'import json, sys, yaml; y=yaml.safe_load(sys.stdin.read()); print(json.dumps(y, indent=4))'"
+
+# https://stackoverflow.com/questions/6250698/how-to-decode-url-encoded-string-in-shell
+# Encode with URLEncode
+
 function urlencode {
-	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+	python -c "import sys; from urllib.parse import quote_plus; print(quote_plus(sys.stdin.read()))"
+}
+
+# Decode URLencoded string
+function urldecode {
+	python -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()), end='')"
+}
+
+# Convert a querystring into pretty JSON
+function urlarray {
+	python -c "import sys, json; from urllib.parse import parse_qs; print(json.dumps({k: q[0] if len(q) == 1 else q for k, q in parse_qs(sys.stdin.read()).items()}), end='')" | json
 }
 
 # get public ip

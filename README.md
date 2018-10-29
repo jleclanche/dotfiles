@@ -15,10 +15,11 @@ dotfiles
 * Git integration enabled
 * 256-color support by default
   * Colors enabled by default in ls, grep, dmesg and less!
-* Add your extra stuff in $XDG_CONFIG_HOME/zsh/profile
-  * Put your custom completions in $XDG_CONFIG_HOME/zsh/completion/
+* Add your extra stuff in `$XDG_CONFIG_HOME/zsh/profile`
+  * Put your custom completions in `$XDG_CONFIG_HOME/zsh/completion/`
+* Saner defaults for `diff`, `hexdump`, `xclip` and more
 
-## Extra functions
+### More aliases
 
 * **bk** \<file\>: Back up a file
 * **htmime** \<url\>: Get the content type of a URL
@@ -26,18 +27,22 @@ dotfiles
 * **hr**: print a terminal-wide banner
 * **launch** \<app\> [args]: Launch a binary, disowning it from the terminal immediately
 * **lscolors**: list all available colors
-* **urlencode** \<text\>: Return the url-encoded value of `text`
-
-
-## Extra aliases
-
-* **http**: Run a webserver in cwd (uses Python 3 http.server)
-* **json**: Indent and prettify json code
-* **myip**: Print the machine's public ip (uses ifconfig.me service)
 * **perms** \<args\>: Print file permissions (octal and text)
+* **myip**: Print the machine's public ip (uses ifconfig.me service)
+* **sprunge**: Pastebin stdin (uses sprunge.us service)
 
 
-## Other fun stuff
+#### Requires Python 3+
+
+* **mkhttp**: Run a webserver in cwd (uses Python 3 http.server)
+* **urlencode**: Quote stdin with url-encoding (percent-encoding)
+* **urldecode**: Unquote percent-encoded stdin
+* **urlarray**: Convert a querystring into pretty JSON
+* **json**: Indent and prettify json code
+* **yaml**: Print YAML contents as pretty-JSON
+
+
+### Other fun stuff
 
 * Ctrl+E: Edit the current line in your $EDITOR
 * Expand "...": Typing ... is expanded to ../..; .... expands to ../../.. and so on.
