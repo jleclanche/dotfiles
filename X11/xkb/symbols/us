@@ -1,34 +1,40 @@
-// /**
-// * Drix EU Latin - version 3.0 (2019-10-04)
-// * Latin layout based on classic US qwerty, with enhanced access to special ASCII characters
-// * Designed for programmers and with access to dead keys and special characters for most
-// * european languages. `m' key rebound to match azerty.
-// * Jerome Leclanche <jerome@leclan.ch>
-// * This layout is in the Public Domain
-// *
-// * ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
-// * │ ~ ~ │ " ´ │ ' ` │ ^ ^ │ ` ¨ │ ´ ° │ 6 6 │ 7 7 │ 8 ¸ │ 9 9 │ | ¬ │ _ ± │ = ≠ ┃Backspace┃
-// * │ @ £ │ 1 ¹ │ 2 ² │ 3 ³ │ 4 ⁴ │ 5 ⁵ │ 6 ⁶ │ 7 ⁷ │ 8 ⁸ │ 9 ⁹ │ 0 ⁰ │ - " │ + ' ┃ ⌫      ┃
-// * ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
-// * ┃Tab    ┃ Q Ø │ W ↑ │ E € │ R ₽ │ T τ │ Y ¥ │ U U │ I ’ │ O Ω │ P ₱ │ [ « │ ] » ┃ ⏎     ┃
-// * ┃ ↹     ┃ q ø │ w w │ e € │ r ® │ t ™ │ y ¥ │ u u │ i ‘ │ o œ │ p π │ ( { │ ) } ┃ Enter ┃
-// * ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
-// * ┃Caps    ┃ A ← │ S ↓ │ D → │ F Ƒ │ G G │ H H │ J ” │ K „ │ L £ │ M M │ % ‰ │ & × ┃      ┃
-// * ┃Lock  ⇬ ┃ a æ │ s ß │ d Δ │ f ƒ │ g g │ h h │ j “ │ k ‚ │ l £ │ m µ │ # ~ │ * $ ┃      ┃
-// * ┣━━━━━━┳━┹───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┷━━━━━┻━━━━━━┫
-// * ┃Shift ┃ > ≥ │ Z ¶ │ X ÷ │ C ¢ │ V V │ B ₿ │ N N │ ? ¿ │ , · │ ; ´ │ \ ¦ ┃Shift         ┃
-// * ┃ ⇧    ┃ < ≤ │ z § │ x × │ c © │ v ♀ │ b ♂ │ n ⚥ │ ! ¡ │ . … │ : ` │ / | ┃ ⇧            ┃
-// * ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴────┲┷━━━━━╈━━━━━┻┳━━━━━━┳━━━━━━┫
-// * ┃Ctrl   ┃ Fn    ┃Alt    ┃ ␣ Space            Nobreakspace ⍽ ┃AltGr ┃Multi ┃ Ctxt ┃ Ctrl ┃
-// * ┃       ┃       ┃       ┃ ␣ Space            Nobreakspace ⍽ ┃      ┃      ┃ Menu ┃      ┃
-// * ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹───────────────────────────────────┺━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┛
-// */
+// Drix EU Latin - version 3.1 (2019-10-07)
+// Author: Jerome Leclanche <jerome@leclan.ch>
+// Latin layout based on classic US qwerty, with azerty-style second-row m key.
+// Features:
+// - Programmer-centric punctuation keys (All common symbols on right hand except < and > on left)
+// - Most common dead accents on altgr-shift number row
+// - Unicode arrows on Altgr+shift+WASD
+// - Some commonly used special characters available:
+//   - Most common european special characters
+//   - Misc currency symbols, copyright/registered/trademark symbols
+//   - Common math symbols + some common greek letters
+// - Compose key replaces Mod5
+//
+// This layout is in the Public Domain.
+//
+// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
+// │ ~ ~ │ " ´ │ ' ` │ ^ ^ │ ` ¨ │ ´ ° │ 6 ¯ │ 7 ¸ │ 8 ˛ │ 9 ˇ │ | ˝ │ _ ± │ = ≠ ┃Backspace┃
+// │ @ £ │ 1 ¹ │ 2 ² │ 3 ³ │ 4 ⁴ │ 5 ⁵ │ 6 ⁶ │ 7 ⁷ │ 8 ⁸ │ 9 ⁹ │ 0 ⁰ │ - " │ + ' ┃ ⌫      ┃
+// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
+// ┃Tab    ┃ Q Ø │ W ↑ │ E € │ R ₽ │ T τ │ Y ¥ │ U U │ I ’ │ O Ω │ P ₱ │ [ « │ ] » ┃ ⏎     ┃
+// ┃ ↹     ┃ q ø │ w w │ e € │ r ® │ t ™ │ y ¥ │ u u │ i ‘ │ o œ │ p π │ ( { │ ) } ┃ Enter ┃
+// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
+// ┃Caps    ┃ A ← │ S ↓ │ D → │ F Ƒ │ G G │ H H │ J ” │ K „ │ L λ │ M M │ % ‰ │ & × ┃      ┃
+// ┃Lock  ⇬ ┃ a æ │ s ß │ d Δ │ f ƒ │ g g │ h h │ j “ │ k ‚ │ l £ │ m µ │ # ~ │ * $ ┃      ┃
+// ┣━━━━━━┳━┹───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┷━━━━━┻━━━━━━┫
+// ┃Shift ┃ > ≥ │ Z ¶ │ X ÷ │ C ¢ │ V V │ B ₿ │ N N │ ? ¿ │ , · │ ; ´ │ \ ¦ ┃Shift         ┃
+// ┃ ⇧    ┃ < ≤ │ z § │ x × │ c © │ v ♀ │ b ♂ │ n ⚥ │ ! ¡ │ . … │ : ` │ / | ┃ ⇧            ┃
+// ┣━━━━━━┻┳━━━━┷━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴────┲┷━━━━━╈━━━━━┻┳━━━━━━┳━━━━━━┫
+// ┃Ctrl   ┃ Fn    ┃Alt    ┃ ␣ Space            Nobreakspace ⍽ ┃AltGr ┃Multi ┃ Ctxt ┃ Ctrl ┃
+// ┃       ┃       ┃       ┃ ␣ Space            Nobreakspace ⍽ ┃      ┃      ┃ Menu ┃      ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹───────────────────────────────────┺━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┛
 
 default
 partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
-	name[Group1] = "English (US)";
+	name[Group1] = "English (Drix)";
 
 	// First row
 	key <TLDE> {[ at,          asciitilde,     sterling,             dead_tilde            ]}; // @ ~ £ ~
@@ -37,11 +43,11 @@ xkb_symbols "basic" {
 	key <AE03> {[ 3,           asciicircum,    threesuperior,        dead_circumflex       ]}; // 3 ^ ³ ^
 	key <AE04> {[ 4,           grave,          foursuperior,         dead_diaeresis        ]}; // 4 4 ⁴ ¨
 	key <AE05> {[ 5,           degree,         fivesuperior,         dead_abovering        ]}; // 5 ° ⁵ °
-	key <AE06> {[ 6,           6,              sixsuperior,          6                     ]}; // 6 6 ⁶ 6
-	key <AE07> {[ 7,           7,              sevensuperior,        7                     ]}; // 7 7 ⁷ 7
-	key <AE08> {[ 8,           8,              eightsuperior,        dead_cedilla          ]}; // 8 8 ⁸ ¸
-	key <AE09> {[ 9,           9,              ninesuperior,         degree                ]}; // 9 9 ⁹ °
-	key <AE10> {[ 0,           bar,            zerosuperior,         notsign               ]}; // 0 | ⁰ ¬
+	key <AE06> {[ 6,           6,              sixsuperior,          dead_macron           ]}; // 6 6 ⁶ ¯
+	key <AE07> {[ 7,           7,              sevensuperior,        dead_cedilla          ]}; // 7 7 ⁷ ¸
+	key <AE08> {[ 8,           8,              eightsuperior,        dead_ogonek           ]}; // 8 8 ⁸ ˛
+	key <AE09> {[ 9,           9,              ninesuperior,         dead_caron            ]}; // 9 9 ⁹ ˇ
+	key <AE10> {[ 0,           bar,            zerosuperior,         dead_doubleacute      ]}; // 0 | ⁰ ˝
 	key <AE11> {[ minus,       underscore,     quotedbl,             plusminus             ]}; // - _ " ±
 	key <AE12> {[ plus,        equal,          apostrophe,           notequal              ]}; // + = ' ≠
 
@@ -68,7 +74,7 @@ xkb_symbols "basic" {
 	key <AC06> {[ h,           H,              h,                    H                     ]}; // h H h H
 	key <AC07> {[ j,           J,              leftdoublequotemark,  rightdoublequotemark  ]}; // j J “ ”
 	key <AC08> {[ k,           K,              singlelowquotemark,   doublelowquotemark    ]}; // k K ‚ „
-	key <AC09> {[ l,           L,              sterling,             sterling              ]}; // l L £ £
+	key <AC09> {[ l,           L,              sterling,             Greek_lambda          ]}; // l L £ λ
 	key <AC10> {[ m,           M,              mu,                   M                     ]}; // m M µ M
 	key <AC11> {[ numbersign,  percent,        asciitilde,           0x1002030             ]}; // # % ~ ‰
 
@@ -91,7 +97,8 @@ xkb_symbols "basic" {
 	// Rebind right Super (windows key) into a Compose key
 	key <RWIN> {[ Multi_key ]};
 
-	// Implement AltGr and AltGr+Shift... somehow, include "level3(ralt_switch)" doesn't do the trick.
+	// Implement AltGr and AltGr+Shift
+	// For some reason, include "level3(ralt_switch)" doesn't do the trick.
 	key <RALT> {
 		type[Group1]="TWO_LEVEL",
 		[ ISO_Level3_Shift, Multi_key ]
