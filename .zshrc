@@ -357,6 +357,11 @@ elif [[ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; th
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# Autosuggestion plugin
+if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh  ]]; then
+	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 # virtualenvwrapper support
 # Remember to set $PROJECT_HOME in your profile file!
 if command -V virtualenvwrapper_lazy.sh >/dev/null 2>&1; then
