@@ -221,8 +221,9 @@ alias hexdump="hexdump --canonical"
 # Default
 alias xclip="xclip -selection clipboard"
 
-# Pastebin contents to dpaste.de
-alias dpaste="curl -F 'format=url' -F 'content=<-' https://dpaste.de/api/"
+# Pastebin contents to https://paste.rs/
+# alias dpaste="curl -F 'format=url' -F 'content=<-' https://dpaste.de/"
+alias dpaste="curl --data-binary @- https://paste.rs/"
 
 
 ##
