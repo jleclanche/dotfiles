@@ -78,15 +78,15 @@ fpath=("$XDG_CONFIG_HOME/zsh/completion" $fpath)
 # zsh configuration
 #
 
-# Keep 1000 lines of history within the shell
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE="$HOME/.zsh_history"
-
-# shell options
-setopt autocd # assume "cd" when a command is a directory
+# History options
+HISTSIZE=10000 # 10k lines loaded in memory
+SAVEHIST=100000 # 100k lines saved on disk
+HISTFILE="$XDG_CACHE_HOME/zsh_history"
 setopt histignorealldups # Substitute commands in the prompt
 setopt sharehistory # Share the same history between all shells
+
+# Other shell options
+setopt autocd # assume "cd" when a command is a directory
 setopt promptsubst # required for git plugin
 # setopt extendedglob
 # Extended glob syntax, eg ^ to negate, <x-y> for range, (foo|bar) etc.
